@@ -1,0 +1,82 @@
+=== Prerequisites
+
+- Java 14 or newer
+
+=== Installation & Running
+
+QuPath Edu Server consists of two components: the *server* itself and of a *tiler* which converts slides into smaller chunks called *tiles*. You must be running both the *server _and_ tiler* for QuPath Edu to function normally: without the tiler you _cannot_ upload new slides. 
+
+It's advised to create a separate user, such as `edu` and to use software such as `screen` to create separate sessions for both instances. Both the tiler and server must be running from the same 
+
+==== Installation (Linux)
+
+_These instructions assume you're familiar with Linux already and skips multiple crucial steps such as creating a new user._
+
+1. Download the latest `qupath-edu-server.jar` from GitHub releases.
+2. Save it to e.g. `/home/edu/server/qupath-edu-server.jar`
+3. Extract OpenSlide Binaries
+- _these are currently only available from the https://github.com/qupath/qupath/tree/main/maven/repo/org/openslide/openslide/3.4.1_2[QuPath repository] -- download the `.jar` file specific to your operating system and *extract* it to where you saved `qupath-edu-server.jar`._
+
+==== Running the server
+
+1. Start the server with `java -jar <jar> [-port <port>]`
+2. During your initial start-up, you will create your first administrator account.
+
+==== Running the tiler
+
+1. Start the tiler with `java -jar <jar> --tiler`
+2. Tiler validates that everything is working as expected and will wait for new slides.
+
+=== Configuration
+
+Configuration is available at `application.conf` which will be generated during your initial start-up. The `application.conf` contains comments for configuration instructions. 
+
+To *generate a new configuration*, simply delete the old one and restart the server. To *reload the configuration*, you must restart the server.
+
+The *most important configuration step* is setting the `server.host` parameter to your host and port -- this should point to your reverse proxy address (see <<SSL>> chapter). *Your server _will not_ function properly if you do not set the host parameter.*
+
+For storing the tiles there are two options. *Flatfile* storage uses the QuPath Edu Server to store any tiles. For *Cloud storage* currently *CSC Allas* is only supported, with initial support for *Amazon S3* existing. If you're interested in support for Amazon S3, please create a Github issue regarding this.
+
+=== SSL
+
+QuPath Edu Server does *not* support SSL and it is up to the end-user to setup a *reverse proxy* using software such as nginx or Apache to provide a secure connection.
+
+Below is a example nginx reverse proxy configuration using https://certbot.eff.org/[Certbot].
+
+```
+server {
+    server_name qupath.edu.server;
+
+    access_log /var/log/nginx/reverse-access.log;
+    error_log /var/log/nginx/reverse-error.log;
+
+    include /etc/nginx/conf/proxy.conf;
+
+    location / {
+        proxy_pass http://127.0.0.1:7777;
+    }
+
+    listen [::]:443 ssl;
+    listen 443 ssl;
+    ssl_certificate /etc/letsencrypt/live/qupath.edu.server/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/qupath.edu.server/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+}
+server {
+    if ($host = qupath.edu.server) {
+        return 301 https://$host$request_uri;
+    }
+
+    listen 80;
+    listen [::]:80;
+
+    server_name qupath.edu.server;
+    return 404;
+}
+```
+
+=== HTTP API
+
+QuPath Edu Server includes a *REST API* -- documentation is available https://edu.qupath.yli-hallila.fi/docs/#/[here].

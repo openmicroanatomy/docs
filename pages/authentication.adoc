@@ -1,0 +1,23 @@
+==== First time setup
+
+When starting QuPath Edu for the first time, you'll see the _First Time Setup_ dialog. You must either select a _public host_ or enter your *QuPath Edu Servers* address to continue. If you are unsure what your institutions address is, try contacting your IT-services. Public hosts are QuPath Edu Servers which can be freely viewed by anyone. Currently the only public host is the demo server provided by the University of Oulu.
+
+.First-time setup dialog
+[#img-setup]
+image::Setup.png[First Time Setup]
+
+You can change your host later by clicking the *Change host ...* link on the *Login dialog* _(see xref:img-login[xrefstyle=short]) or from the QuPath settings menu:Edit[Preferences > Edu]
+
+==== Logging in
+
+You can continue either *Continue as a guest* _(only read permissions)_ or authenticate using *Credentials* _(regular email & password combination)_ or a *Microsoft account*.
+
+NOTE: Logging in using Credentials and/or Microsoft Authentication may not be available on your organization depending on your _QuPath Edu Server_ setup.
+
+.Login dialog
+[#img-login]
+image::Login.png[Login dialog]
+
+==== Password recovery
+
+If you forgot your password, you can recover your password by pressing btn:[Login with credentials] and then btn:[Forgot password] from the bottom right-hand corner. 

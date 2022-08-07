@@ -1,0 +1,37 @@
+=== What is QuPath Edu
+
+QuPath Edu is a project which contains three components: *QuPath Edu Extension*, *QuPath Edu Server* and *QuPath Edu Cloud _(to be renamed)_*.
+
+https://github.com/yli-hallila/qupath-edu-extension[*QuPath Edu Extension*] is an extension for https://qupath.github.io/[QuPath], which allows QuPath to communicate with a https://github.com/yli-hallila/qupath-edu-server[*QuPath Edu Server*], thus making it possible to view, edit and modify QuPath projects (called _Lessons_ in QuPath Edu). The *QuPath Edu Server* handles all the heavy lifting required to authenticate users, upload & delete new slides, manage data and so on. _QuPath Edu_ is also compatible with other data sources, such as https://github.com/qupath/qupath-extension-omero[Omero]. 
+
+QuPath Edu also includes https://github.com/yli-hallila/qupath-edu-cloud[*QuPath Edu Cloud* _(to be renamed)_], which is a web application that communicates with a *QuPath Edu Server* and can be used for *viewing* projects. 
+
+.Visual representation of different QuPath Edu components and how they communicate with each other. Blue components are downloaded by the end-user and the green components are setup by the system administrator
+[#img-components]
+image::Components.png[Components]
+
+=== Hierarchy
+
+A *QuPath Edu Server* is _“compartmentalized”_ as shown in *Figure 2.* Each server can host one or multiple _Organizations_. Each organization has its own _Workspaces_, which hold _Classes_, which contain the _Lessons_. See *Table 1* for how to think about these.
+
+.A demonstration of the QuPath Edu hierarchy, with a server with three different organizations.
+[#img-hierarchy]
+image::Hierarchy.png[Hierarchy]
+
+.Translations for different QuPath components
+[cols="1,3"]
+|===
+|Name |Translation 
+
+|Organization
+|Represents a university, school, department, or such – depending on your needs
+
+|Workspace
+|A course, such as _Histology_ or _Pathology_.
+
+|Class
+|A class such as _Basic Histology_ or _Advanced Histology_.
+
+|Lesson
+|A lesson within that class, such as _Epithelium_ or _Connective tissue_.
+|===

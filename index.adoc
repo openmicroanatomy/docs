@@ -1,0 +1,63 @@
+= QuPath Edu Handbook (draft)
+Aaron Yli-Hallila <dev@yli-hallila.fi>
+v1.0 draft, 1.8.2022
+:toc: left
+:toclevels: 3
+:imagesdir: images
+:experimental:
+:xrefstyle: short
+
+*This documentation is currently work in progress* 
+
+== Introduction to QuPath Edu
+
+include::pages/introduction.adoc[]
+
+== Getting started
+
+=== Prerequisites
+
+*QuPath & QuPath Edu Extension*
+
+- A 64-bit Windows, macOS or Linux machine, with at least 250 MB of disk space
+
+*QuPath Edu Cloud*
+
+- None
+
+*QuPath Edu Server*
+
+- See <<QuPath Edu Server>> chapter.
+
+=== Installing QuPath Edu Extension
+
+1. Install https://qupath.readthedocs.io/en/stable/docs/intro/installation.html[QuPath] by following the instructions on the QuPath website
+2. Download the https://github.com/yli-hallila/qupath-edu-extension/releases[QuPath Edu extension]
+3. Install the extension by drag and dropping the downloaded `.jar` file to the QuPath viewer
+    
+_See https://github.com/qupath/qupath/wiki/Creating-extensions#installing-extensions[here] for more detailed instructions on how to install QuPath extensions_
+
+== QuPath Edu Extension
+=== Connecting & authenticating
+
+include::pages/authentication.adoc[]
+
+=== Creating content
+
+Going further, it's assumed the reader is already familiar with QuPath. If you have never used QuPath before, it's advised to read the https://qupath.readthedocs.io/en/stable/[QuPath documentation] first.
+
+include::pages/content.adoc[]
+
+=== Administrative tasks
+
+include::pages/administrative.adoc[]
+
+== QuPath Edu Cloud _(to be renamed)_
+
+*Documentation in progress*. 
+
+Source code and more details are available at https://github.com/yli-hallila/qupath-edu-cloud[yli-hallila/qupath-edu-cloud].
+
+== QuPath Edu Server
+
+include::pages/server.adoc[]

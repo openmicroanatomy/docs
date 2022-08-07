@@ -1,0 +1,104 @@
+Most administrative tools are available by selecting menu:QuPath Edu[...] from the QuPath top bar. Some administrative tasks requires access to the server and are detailed in the <<QuPath Edu Server>> chapter.
+
+==== Users & Roles
+
+Manage users by opening the *User management* interface using menu:QuPath Edu[Manage users].
+
+.User management interface
+[#img-user-management]
+image::User-Management.png[User management interface]
+
+Users with the *Administrative tasks* roles are able to view & modify all users regardless of organization. Users with only the *Manage users* roles can only view & modify users that belong to the users organization.
+
+Only users with the *Administrative tasks* role are able to migrate users to a different organization.
+
+Passwords are required to have at least 3 characters, no other requirements.
+
+.Explanation for different roles
+[cols="1,3"]
+|===
+|Role |Explanation 
+
+|Manage slides
+|Upload new slides and delete / modify slides that are owned by the users organization.
+
+|Manage users
+|Create new users and edit existing users on the users organization.
+
+|Moderator tasks
+|Create new workspaces, courses and lessons on the users organization.
+
+|Administrative tasks
+|All permissions, regardless of organization.
+|===
+
+==== Slides
+
+Manage slides by opening the *Slide management* interface using menu:QuPath Edu[Manage slides].
+
+.Slide management interface. Each slide has an UUID _(Universal Unique Identifier)_ which distinguishes it from others.
+[#img-slide-management]
+image::Slide-Management.png[Slide management interface]
+
+Users with the *Administrative tasks* roles are able to view & modify all slides regardless of organization. Users with only the *Manage slides* roles can only view & modify slides that belong to the users organization.
+
+*Import new slides* by clicking the btn:[Import slide] button. QuPath verifies that the selected slide is compatible with QuPath Edu and starts uploading it. After upload the QuPath Edu Server processes the slide which can take up to 30 minutes depending on the slide size and server performance.
+
+*Deleting* a slide will make it inaccessible from any Lesson that contains it but *will not* remove it from the slide listing. Deleted slides must be removed manually from each lesson also. *Renaming* a slide will only rename slides added in the future.
+
+WARNING: In QuPath Edu Server *version 1.0* deleting slides only makes them inaccessible but *does not* remove the data stored. It is up to the server administrator to delete any associated data. 
+
+You can view any slide by clicking on btn:[Open selected]. If you have a lesson open, you will be prompted to add that slide to the current project.
+
+==== Backups
+
+Manage *lesson* backups by opening the *Backup management* interface using menu:QuPath Edu[Manage backups].
+
+Restore a lesson by selecting the lesson and pressing btn:[Restore backup] or preview it first by pressing btn:[Preview backup]. Backups are automatically deleted after 30 days. 
+
+WARNING: Currently there's no way to restore a deleted workspace / class or a lesson without administrative tools. A whole database backup is performed every 24 hours, which can be used to restore any deleted workspace / class or lesson.
+
+NOTE: In QuPath Edu Server version 1.0 a bug exists, which allows users with write permissions to preview all backups regardless of organization. Restoring backups is still limited to users with proper write permissions to a specific workspace.
+
+.Backup management interface. 
+[#img-edit-organization]
+image::Backup-Management.png[Backup management dialog]
+
+==== Organizations
+
+Manage organizations by opening the *Organization management* interface using menu:QuPath Edu[Manage organizations].
+
+.Organization management interface. Each organization has an UUID _(Universal Unique Identifier)_ which distinguishes it from others.
+[#img-organization-management]
+image::Organization-Management.png[Organization management interface]
+
+*Making any changes to an organization requires the _Administrative tasks_ permission*.
+
+*Deleting* an organization will delete *permanently all data* associated with that project, including *workspaces, lessons, courses, users, and slides*.
+
+Clicking btn:[Edit] allows you to *rename* and *upload a logo* for that organization, see <<img-edit-organization>>.
+
+*Organization logo requirements*
+
+- PNG filetype
+- Size of 400x80 px or greater
+- Aspect ratio of 5:1
+
+.Edit organization dialog.
+[#img-edit-organization]
+image::Edit-Organization.png[Edit organization dialog]
+
+
+==== Permissions
+
+Manage permissions by opening the *Permission management* interface using menu:QuPath Edu[Manage permissions].
+
+By default, when creating a new workspace, it is automatically assigned the *Write* permission for *yourself* and *Read* access to *no-one*. You can restrict access to either _a)_ only yourself, _b)_ specific organisations, _c)_ specific users, _d)_ combination of users and organizations. 
+
+Simply use btn:[&rsaquo;], btn:[&raquo;]btn:[&lsaquo;] and btn:[&laquo;] to add/remove permissions. Double-arrows will move *all* items and single-arrows move *only the selected* one. Clicking btn:[?] will give you an analysis of who can read/write the specific workspace in plain English.
+
+Remember to press btn:[Save changes] _(bottom right-hand corner)_; currently QuPath Edu gives *no warning* if forgetting to save any changes.
+
+.Permission management interface. *1:* List of all workspaces, the organization is specified in parentheses. *2 & 3:* Read & write permissions separated in different tabs. *4 & 5:* Left pane indicates any users/organizations available and right pane indicates users/organizations with active permissions.  
+[#img-permission-management]
+image::Permission-Management.png[Permission management interface]

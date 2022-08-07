@@ -1,0 +1,55 @@
+Before making changes anywhere, confirm that you have *Editing mode enabled* by pressing btn:[Turn editing on] on the QuPath toolbar (see <<img-toolbar>> below). If any button is disabled, try checking first that *a)* edit mode is enabled, *b)* you're logged in *b)*, you have the required permissions to make changes (see <<Users & Roles>>). 
+
+.QuPath Toolbar. Notice how the annotation tools are disabled because editing mode is not turned on.
+[#img-toolbar]
+image::Toolbar.png[Toolbar]
+
+==== Creating workspaces, courses and lessons
+
+Begin by opening the *Select lesson* (see <<img-select-lesson>> below) interface by pressing either btn:[Open lesson] or btn:[Create lesson] buttons in the main QuPath interface on the left sidebar (see <<img-create-lesson>> below).
+
+.Buttons to open and create lesson, and add images
+[#img-create-lesson]
+image::Left-Sidebar.png[Open or create lesson]
+
+.*1*: A workspace named _Anatomy_. *2*: Two courses named _Course materials_ and _Additional materials_. *3*: Five lessons belonging to the _Course materials_ course. *4*: Create a workspace, course or a lesson.
+[#img-select-lesson]
+image::Select-Lesson.png[Select lesson dialog]
+
+Create new workspaces by pressing btn:[Create ...] and selecting either `Workspace`, `Course` or `Lesson`. `Course` and `Lesson` are disabled until you select a `Workspace`.
+
+*Delete or rename* any `Workspace`, `Lesson` or `Class` by right-clicking on it. You can also *hide* `Classs`  or set a *description*. Hiding a Class will hide that Class from any guests or users without write permissions. Deleting a `Workspace` will delete all `Lessons` and `Classes` belonging to that `Workspace` and similarly deleting a `Lesson` will delete all `Classes` belonging to that `Lesson`.
+
+==== Adding slides to a lesson
+
+To add a new slide click on btn:[Add images] (next to btn:[Open lesson], see <<img-create-lesson>> above) to open the *Slide manager* interface. From here, select any slide you wish to add and click on btn:[Add selected]. This will open the *QuPath Image Import* interface. These settings are important if you're planning on doing any analysis on the slides later. The default options and setting the *Image type* to *Brightfield (H-DAB)* is usually enough for teaching purposes. Clicking on btn:[Import] will add the slide to the lesson.
+
+==== Making changes to slides
+
+Adding annotations, modifying slide description or such work identically as in QuPath, just make sure you have *enabled editing mode* (see <<img-toolbar>>). Read the https://qupath.readthedocs.io/en/stable/docs/starting/annotating.html[QuPath documentation] for detailed information on annotating and such. 
+
+Any changes will be saved when either *a)* clicking on menu:File[Save] or menu:File[Save as], *b)* changing slides, *c)* closing the lesson.
+
+==== Modify Lesson Information
+
+Edit the *Lesson Information* by either *a)* double-click anywhere on the *Lesson Information* tab *b)* menu:File[Project... > Edit lesson information].
+
+Lesson Information supports *rich text*, which includes custom fonts, colors, tables, images, videos, hyperlinks and much more.
+
+.Rich text editor.
+[#img-wysiwyg-editor]
+image::WYSIWYG-Editor.png[Rich text editor]
+
+==== Creating slide tours
+
+*Slide tours* are a feature introduced by QuPath Edu, it allows teachers to create short guided tours of slides, going through the key points of a slide.
+
+.Create slide tour button on viewers top-left corner.
+[#img-create-slidetour]
+image::Create-Slide-Tour.png[Create Slide tour]
+
+Slide tours consists of *"frames"*, which the user views one-by-one. To create a *Slide tour*, press on btn:[Create tour] tour on the Viewers top-left corner. Next click on menu:More ⋮[Create new frame], and pan & zoom on the point of interest, make any annotations you wish. Set a description for this frame by pressing menu:More ⋮[Edit text]. Save changes by clicking on menu:More ⋮[Save changes]. Create as many frames you wish by clicking menu:More ⋮[Create new frame] and again making any annotations, panning & zooming, setting a description and saving the changes with menu:More ⋮[Save changes]. Preview your slide tour by clicking on btn[Previous] and btn[Next].
+
+.Slide tour editing interface
+[#img-slidetour]
+image::Slide-Tour.png[Slide tour]
