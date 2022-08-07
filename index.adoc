@@ -1,5 +1,4 @@
 = QuPath Edu Handbook (draft)
-Aaron Yli-Hallila <dev@yli-hallila.fi>
 v1.0 draft, 1.8.2022
 :toc: left
 :toclevels: 3
