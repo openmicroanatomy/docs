@@ -6,7 +6,7 @@
 
 QuPath Edu Server consists of two components: the *server* itself and of a *tiler* which converts slides into smaller chunks called *tiles*. You must be running both the *server _and_ tiler* for QuPath Edu to function normally: without the tiler you _cannot_ upload new slides. 
 
-It's advised to create a separate user, such as `edu` and to use software such as `screen` to create separate sessions for both instances. Both the tiler and server must be running from the same 
+It's advised to create a separate user, such as `edu` and to use software such as `screen` to create separate sessions for both instances. Both the tiler and server must be running from the same same location.
 
 ==== Installation (Linux)
 
@@ -35,7 +35,7 @@ To *generate a new configuration*, simply delete the old one and restart the ser
 
 The *most important configuration step* is setting the `server.host` parameter to your host and port -- this should point to your reverse proxy address (see <<SSL>> chapter). *Your server _will not_ function properly if you do not set the host parameter.*
 
-For storing the tiles there are two options. *Flatfile* storage uses the QuPath Edu Server to store any tiles. For *Cloud storage* currently *CSC Allas* is only supported, with initial support for *Amazon S3* existing. If you're interested in support for Amazon S3, please create a Github issue regarding this.
+For storing the tiles there are two options. *Flatfile* storage uses the QuPath Edu Server to store any tiles. For *Cloud storage* currently *CSC Allas* is only supported, with initial support for *Amazon S3* existing. If you're interested in support for Amazon S3, please create a GitHub issue regarding this.
 
 === SSL
 

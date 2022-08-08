@@ -523,7 +523,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>QuPath Edu is a project which contains three components: <strong>QuPath Edu Extension</strong>, <strong>QuPath Edu Server</strong> and <strong>QuPath Edu Cloud <em>(to be renamed)</em></strong>.</p>
 </div>
 <div class="paragraph data-line-5">
-<p><a href="https://github.com/yli-hallila/qupath-edu-extension" data-href="https://github.com/yli-hallila/qupath-edu-extension"><strong>QuPath Edu Extension</strong></a> is an extension for <a href="https://qupath.github.io/" data-href="https://qupath.github.io/">QuPath</a>, which allows QuPath to communicate with a <a href="https://github.com/yli-hallila/qupath-edu-server" data-href="https://github.com/yli-hallila/qupath-edu-server"><strong>QuPath Edu Server</strong></a>, thus making it possible to view, edit and modify QuPath projects (called <em>Lessons</em> in QuPath Edu). The <strong>QuPath Edu Server</strong> handles all the heavy lifting required to authenticate users, upload &amp; delete new slides, manage data and so on. <em>QuPath Edu</em> is also compatible with other data sources, such as <a href="https://github.com/qupath/qupath-extension-omero" data-href="https://github.com/qupath/qupath-extension-omero">Omero</a>.</p>
+<p><a href="https://github.com/yli-hallila/qupath-edu-extension" data-href="https://github.com/yli-hallila/qupath-edu-extension"><strong>QuPath Edu Extension</strong></a> is an extension for <a href="https://qupath.github.io/" data-href="https://qupath.github.io/">QuPath</a>, which allows QuPath to communicate with a <a href="https://github.com/yli-hallila/qupath-edu-server" data-href="https://github.com/yli-hallila/qupath-edu-server"><strong>QuPath Edu Server</strong></a>, thus making it possible to view, edit and modify QuPath projects (called <em>Lessons</em> in QuPath Edu). The <strong>QuPath Edu Server</strong> handles all the heavy lifting required to authenticate users, upload new slides, manage data and so on. <em>QuPath Edu</em> is also compatible with other data sources, such as <a href="https://github.com/qupath/qupath-extension-omero" data-href="https://github.com/qupath/qupath-extension-omero">Omero</a>.</p>
 </div>
 <div class="paragraph data-line-7">
 <p>QuPath Edu also includes <a href="https://github.com/yli-hallila/qupath-edu-cloud" data-href="https://github.com/yli-hallila/qupath-edu-cloud"><strong>QuPath Edu Cloud</strong> <em>(to be renamed)</em></a>, which is a web application that communicates with a <strong>QuPath Edu Server</strong> and can be used for <strong>viewing</strong> projects.</p>
@@ -645,7 +645,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect3 data-line-1">
 <h4 id="_first_time_setup">First time setup</h4>
 <div class="paragraph data-line-3">
-<p>When starting QuPath Edu for the first time, you&#8217;ll see the <em>First Time Setup</em> dialog. You must either select a <em>public host</em> or enter your <strong>QuPath Edu Servers</strong> address to continue. If you are unsure what your institutions address is, try contacting your IT-services. Public hosts are QuPath Edu Servers which can be freely viewed by anyone. Currently the only public host is the demo server provided by the University of Oulu.</p>
+<p>When starting QuPath Edu for the first time, you&#8217;ll see the <em>First-time setup</em> dialog. You must either select a <em>public host</em> or enter your <strong>QuPath Edu Servers</strong> address to continue. If you are unsure what your institutions address is, try contacting your IT-services. Public hosts are QuPath Edu Servers which can be freely viewed by anyone. Currently the only public host is the demo server provided by the University of Oulu.</p>
 </div>
 <div id="img-setup" class="imageblock data-line-7">
 <div class="content">
@@ -654,7 +654,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="title">Figure 3. First-time setup dialog</div>
 </div>
 <div class="paragraph data-line-9">
-<p>You can change your host later by clicking the <strong>Change host &#8230;&#8203;</strong> link on the <strong>Login dialog</strong> _(see <a href="#img-login">Figure 4</a>) or from the QuPath settings <span class="menuseq"><b class="menu">Edit</b>&#160;<b class="caret">&#8250;</b> <b class="submenu">Preferences</b>&#160;<b class="caret">&#8250;</b> <b class="menuitem">Edu</b></span></p>
+<p>You can change your host later by clicking the <strong>Change host &#8230;&#8203;</strong> link on the <strong>Login dialog</strong> (see <a href="#img-login">Figure 4</a>) or from the QuPath settings <span class="menuseq"><b class="menu">Edit</b>&#160;<b class="caret">&#8250;</b> <b class="submenu">Preferences</b>&#160;<b class="caret">&#8250;</b> <b class="menuitem">Edu</b></span></p>
 </div>
 </div>
 <div class="sect3 data-line-11">
@@ -678,7 +678,7 @@ Logging in using Credentials and/or Microsoft Authentication may not be availabl
 <div class="content">
 <img src="images/Login.png" alt="Login dialog">
 </div>
-<div class="title">Figure 4. Login dialog</div>
+<div class="title">Figure 4. Login dialog. Change host by pressing the <b class="button">Change host &#8230;&#8203;</b> on the bottom-right hand corner.</div>
 </div>
 </div>
 <div class="sect3 data-line-21">
@@ -723,52 +723,64 @@ Logging in using Credentials and/or Microsoft Authentication may not be availabl
 <p>Create new workspaces by pressing <b class="button">Create &#8230;&#8203;</b> and selecting either <code>Workspace</code>, <code>Course</code> or <code>Lesson</code>. <code>Course</code> and <code>Lesson</code> are disabled until you select a <code>Workspace</code>.</p>
 </div>
 <div class="paragraph data-line-21">
-<p><strong>Delete or rename</strong> any <code>Workspace</code>, <code>Lesson</code> or <code>Class</code> by right-clicking on it. You can also <strong>hide</strong> <code>Classs</code>  or set a <strong>description</strong>. Hiding a Class will hide that Class from any guests or users without write permissions. Deleting a <code>Workspace</code> will delete all <code>Lessons</code> and <code>Classes</code> belonging to that <code>Workspace</code> and similarly deleting a <code>Lesson</code> will delete all <code>Classes</code> belonging to that <code>Lesson</code>.</p>
+<p><strong>Delete or rename</strong> any <code>Workspace</code>, <code>Lesson</code> or <code>Class</code> by right-clicking on it. You can also <strong>hide</strong> Classes  or set a <strong>description</strong>. Hiding a Class will hide that Class from guests and users without write permissions. Deleting a Workspace will delete all Lessons and Classes belonging to that Workspace and similarly deleting a Lesson will delete all Classes belonging to that Lesson.</p>
+</div>
+<div class="admonitionblock warning data-line-23">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+Deleting a workspace, lesson or class is currently not reversible. See <a href="#_backups">Backups</a> for more details.
+</td>
+</tr>
+</table>
 </div>
 </div>
-<div class="sect3 data-line-23">
+<div class="sect3 data-line-25">
 <h4 id="_adding_slides_to_a_lesson">Adding slides to a lesson</h4>
-<div class="paragraph data-line-25">
+<div class="paragraph data-line-27">
 <p>To add a new slide click on <b class="button">Add images</b> (next to <b class="button">Open lesson</b>, see <a href="#img-create-lesson">Figure 6</a> above) to open the <strong>Slide manager</strong> interface. From here, select any slide you wish to add and click on <b class="button">Add selected</b>. This will open the <strong>QuPath Image Import</strong> interface. These settings are important if you&#8217;re planning on doing any analysis on the slides later. The default options and setting the <strong>Image type</strong> to <strong>Brightfield (H-DAB)</strong> is usually enough for teaching purposes. Clicking on <b class="button">Import</b> will add the slide to the lesson.</p>
 </div>
 </div>
-<div class="sect3 data-line-27">
+<div class="sect3 data-line-29">
 <h4 id="_making_changes_to_slides">Making changes to slides</h4>
-<div class="paragraph data-line-29">
+<div class="paragraph data-line-31">
 <p>Adding annotations, modifying slide description or such work identically as in QuPath, just make sure you have <strong>enabled editing mode</strong> (see <a href="#img-toolbar">Figure 5</a>). Read the <a href="https://qupath.readthedocs.io/en/stable/docs/starting/annotating.html" data-href="https://qupath.readthedocs.io/en/stable/docs/starting/annotating.html">QuPath documentation</a> for detailed information on annotating and such.</p>
 </div>
-<div class="paragraph data-line-31">
+<div class="paragraph data-line-33">
 <p>Any changes will be saved when either <strong>a)</strong> clicking on <span class="menuseq"><b class="menu">File</b>&#160;<b class="caret">&#8250;</b> <b class="menuitem">Save</b></span> or <span class="menuseq"><b class="menu">File</b>&#160;<b class="caret">&#8250;</b> <b class="menuitem">Save as</b></span>, <strong>b)</strong> changing slides, <strong>c)</strong> closing the lesson.</p>
 </div>
 </div>
-<div class="sect3 data-line-33">
+<div class="sect3 data-line-35">
 <h4 id="_modify_lesson_information">Modify Lesson Information</h4>
-<div class="paragraph data-line-35">
+<div class="paragraph data-line-37">
 <p>Edit the <strong>Lesson Information</strong> by either <strong>a)</strong> double-click anywhere on the <strong>Lesson Information</strong> tab <strong>b)</strong> <span class="menuseq"><b class="menu">File</b>&#160;<b class="caret">&#8250;</b> <b class="submenu">Project&#8230;&#8203;</b>&#160;<b class="caret">&#8250;</b> <b class="menuitem">Edit lesson information</b></span>.</p>
 </div>
-<div class="paragraph data-line-37">
+<div class="paragraph data-line-39">
 <p>Lesson Information supports <strong>rich text</strong>, which includes custom fonts, colors, tables, images, videos, hyperlinks and much more.</p>
 </div>
-<div id="img-wysiwyg-editor" class="imageblock data-line-41">
+<div id="img-wysiwyg-editor" class="imageblock data-line-43">
 <div class="content">
 <img src="images/WYSIWYG-Editor.png" alt="Rich text editor">
 </div>
 <div class="title">Figure 8. Rich text editor.</div>
 </div>
 </div>
-<div class="sect3 data-line-43">
+<div class="sect3 data-line-45">
 <h4 id="_creating_slide_tours">Creating slide tours</h4>
-<div class="paragraph data-line-45">
+<div class="paragraph data-line-47">
 <p><strong>Slide tours</strong> are a feature introduced by QuPath Edu, it allows teachers to create short guided tours of slides, going through the key points of a slide.</p>
 </div>
-<div id="img-create-slidetour" class="imageblock data-line-49">
+<div id="img-create-slidetour" class="imageblock data-line-51">
 <div class="content">
 <img src="images/Create-Slide-Tour.png" alt="Create Slide tour">
 </div>
 <div class="title">Figure 9. Create slide tour button on viewers top-left corner.</div>
 </div>
-<div class="paragraph data-line-51">
-<p>Slide tours consists of <strong>"frames"</strong>, which the user views one-by-one. To create a <strong>Slide tour</strong>, press on <b class="button">Create tour</b> tour on the Viewers top-left corner. Next click on <span class="menuseq"><b class="menu">More ⋮</b>&#160;<b class="caret">&#8250;</b> <b class="menuitem">Create new frame</b></span>, and pan &amp; zoom on the point of interest, make any annotations you wish. Set a description for this frame by pressing <span class="menuseq"><b class="menu">More ⋮</b>&#160;<b class="caret">&#8250;</b> <b class="menuitem">Edit text</b></span>. Save changes by clicking on <span class="menuseq"><b class="menu">More ⋮</b>&#160;<b class="caret">&#8250;</b> <b class="menuitem">Save changes</b></span>. Create as many frames you wish by clicking <span class="menuseq"><b class="menu">More ⋮</b>&#160;<b class="caret">&#8250;</b> <b class="menuitem">Create new frame</b></span> and again making any annotations, panning &amp; zooming, setting a description and saving the changes with <span class="menuseq"><b class="menu">More ⋮</b>&#160;<b class="caret">&#8250;</b> <b class="menuitem">Save changes</b></span>. Preview your slide tour by clicking on btn[Previous] and btn[Next].</p>
+<div class="paragraph data-line-53">
+<p>Slide tours consists of <strong>"frames"</strong>, which the user views one-by-one. To create a <strong>Slide tour</strong>, press on <b class="button">Create tour</b> tour on the Viewers top-left corner. Next click on <span class="menuseq"><b class="menu">More ⋮</b>&#160;<b class="caret">&#8250;</b> <b class="menuitem">Create new frame</b></span>, and pan &amp; zoom on the point of interest, make any annotations you wish. Set a description for this frame by pressing <span class="menuseq"><b class="menu">More ⋮</b>&#160;<b class="caret">&#8250;</b> <b class="menuitem">Edit text</b></span>. Save changes by clicking on <span class="menuseq"><b class="menu">More ⋮</b>&#160;<b class="caret">&#8250;</b> <b class="menuitem">Save changes</b></span>. Create as many frames you wish by clicking <span class="menuseq"><b class="menu">More ⋮</b>&#160;<b class="caret">&#8250;</b> <b class="menuitem">Create new frame</b></span> and again making any annotations, panning &amp; zooming, setting a description and saving the changes with <span class="menuseq"><b class="menu">More ⋮</b>&#160;<b class="caret">&#8250;</b> <b class="menuitem">Save changes</b></span>. Preview your slide tour by clicking on <b class="button">Previous</b> and <b class="button">Next</b>.</p>
 </div>
 <div id="img-slidetour" class="imageblock data-line-48">
 <div class="content">
@@ -795,7 +807,7 @@ Logging in using Credentials and/or Microsoft Authentication may not be availabl
 <div class="title">Figure 11. User management interface</div>
 </div>
 <div class="paragraph data-line-11">
-<p>Users with the <strong>Administrative tasks</strong> roles are able to view &amp; modify all users regardless of organization. Users with only the <strong>Manage users</strong> roles can only view &amp; modify users that belong to the users organization.</p>
+<p>Users with the <strong>Administrative tasks</strong> role are able to view &amp; modify all users regardless of organization. Users with only the <strong>Manage users</strong> roles can only view &amp; modify users that belong to the users organization.</p>
 </div>
 <div class="paragraph data-line-13">
 <p>Only users with the <strong>Administrative tasks</strong> role are able to migrate users to a different organization.</p>
@@ -853,7 +865,7 @@ Logging in using Credentials and/or Microsoft Authentication may not be availabl
 <p><strong>Import new slides</strong> by clicking the <b class="button">Import slide</b> button. QuPath verifies that the selected slide is compatible with QuPath Edu and starts uploading it. After upload the QuPath Edu Server processes the slide which can take up to 30 minutes depending on the slide size and server performance.</p>
 </div>
 <div class="paragraph data-line-47">
-<p><strong>Deleting</strong> a slide will make it inaccessible from any Lesson that contains it but <strong>will not</strong> remove it from the slide listing. Deleted slides must be removed manually from each lesson also. <strong>Renaming</strong> a slide will only rename slides added in the future.</p>
+<p><strong>Deleting</strong> a slide will make it inaccessible from any Lesson that contains it but <strong>will not</strong> remove it from the slide listing. Deleted slides must be removed manually from each lesson also. <strong>Renaming</strong> a slide will only affect slides added in the future.</p>
 </div>
 <div class="admonitionblock warning data-line-49">
 <table>
@@ -922,7 +934,7 @@ In QuPath Edu Server version 1.0 a bug exists, which allows users with write per
 <div class="title">Figure 14. Organization management interface. Each organization has an UUID <em>(Universal Unique Identifier)</em> which distinguishes it from others.</div>
 </div>
 <div class="paragraph data-line-75">
-<p><strong>Making any changes to an organization requires the <em>Administrative tasks</em> permission</strong>.</p>
+<p><strong>Making any changes to an organization requires the <em>Administrative tasks</em> role</strong>.</p>
 </div>
 <div class="paragraph data-line-77">
 <p><strong>Deleting</strong> an organization will delete <strong>permanently all data</strong> associated with that project, including <strong>workspaces, lessons, courses, users, and slides</strong>.</p>
@@ -959,10 +971,10 @@ In QuPath Edu Server version 1.0 a bug exists, which allows users with write per
 <p>Manage permissions by opening the <strong>Permission management</strong> interface using <span class="menuseq"><b class="menu">QuPath Edu</b>&#160;<b class="caret">&#8250;</b> <b class="menuitem">Manage permissions</b></span>.</p>
 </div>
 <div class="paragraph data-line-96">
-<p>By default, when creating a new workspace, it is automatically assigned the <strong>Write</strong> permission for <strong>yourself</strong> and <strong>Read</strong> access to <strong>no-one</strong>. You can restrict access to either <em>a)</em> only yourself, <em>b)</em> specific organisations, <em>c)</em> specific users, <em>d)</em> combination of users and organizations.</p>
+<p>By default, when creating a new workspace, it is automatically assigned the <strong>Write</strong> access for <strong>yourself</strong> and <strong>Read</strong> access to <strong>no-one</strong>. You can restrict access to either <strong>a)</strong> only yourself, <strong>b)</strong> specific organizations, <strong>c)</strong> specific users, <strong>d)</strong> combination of users and organizations.</p>
 </div>
 <div class="paragraph data-line-98">
-<p>Simply use <b class="button">&rsaquo;</b>, <b class="button">&raquo;</b><b class="button">&lsaquo;</b> and <b class="button">&laquo;</b> to add/remove permissions. Double-arrows will move <strong>all</strong> items and single-arrows move <strong>only the selected</strong> one. Clicking <b class="button">?</b> will give you an analysis of who can read/write the specific workspace in plain English.</p>
+<p>Simply use <b class="button">&rsaquo;</b>, <b class="button">&raquo;</b><b class="button">&lsaquo;</b> and <b class="button">&laquo;</b> to add/remove permissions. Double-arrows moves <strong>all items</strong> and single-arrows move <strong>only the selected item</strong>. Clicking <b class="button">?</b> will give you an analysis of who has read/write permissions in plain English.</p>
 </div>
 <div class="paragraph data-line-100">
 <p>Remember to press <b class="button">Save changes</b> <em>(bottom right-hand corner)</em>; currently QuPath Edu gives <strong>no warning</strong> if forgetting to save any changes.</p>
@@ -1007,7 +1019,7 @@ In QuPath Edu Server version 1.0 a bug exists, which allows users with write per
 <p>QuPath Edu Server consists of two components: the <strong>server</strong> itself and of a <strong>tiler</strong> which converts slides into smaller chunks called <strong>tiles</strong>. You must be running both the <strong>server <em>and</em> tiler</strong> for QuPath Edu to function normally: without the tiler you <em>cannot</em> upload new slides.</p>
 </div>
 <div class="paragraph data-line-9">
-<p>It&#8217;s advised to create a separate user, such as <code>edu</code> and to use software such as <code>screen</code> to create separate sessions for both instances. Both the tiler and server must be running from the same</p>
+<p>It&#8217;s advised to create a separate user, such as <code>edu</code> and to use software such as <code>screen</code> to create separate sessions for both instances. Both the tiler and server must be running from the same same location.</p>
 </div>
 <div class="sect3 data-line-11">
 <h4 id="_installation_linux">Installation (Linux)</h4>
@@ -1074,7 +1086,7 @@ In QuPath Edu Server version 1.0 a bug exists, which allows users with write per
 <p>The <strong>most important configuration step</strong> is setting the <code>server.host</code> parameter to your host and port&#8201;&#8212;&#8201;this should point to your reverse proxy address (see <a href="#_ssl">SSL</a> chapter). <strong>Your server <em>will not</em> function properly if you do not set the host parameter.</strong></p>
 </div>
 <div class="paragraph data-line-38">
-<p>For storing the tiles there are two options. <strong>Flatfile</strong> storage uses the QuPath Edu Server to store any tiles. For <strong>Cloud storage</strong> currently <strong>CSC Allas</strong> is only supported, with initial support for <strong>Amazon S3</strong> existing. If you&#8217;re interested in support for Amazon S3, please create a Github issue regarding this.</p>
+<p>For storing the tiles there are two options. <strong>Flatfile</strong> storage uses the QuPath Edu Server to store any tiles. For <strong>Cloud storage</strong> currently <strong>CSC Allas</strong> is only supported, with initial support for <strong>Amazon S3</strong> existing. If you&#8217;re interested in support for Amazon S3, please create a GitHub issue regarding this.</p>
 </div>
 </div>
 <div class="sect2 data-line-40">
@@ -1132,7 +1144,7 @@ server {
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-08-07 19:29:37 +0300
+Last updated 2022-08-08 10:43:43 +0300
 </div>
 </div>
 </body>

@@ -2,7 +2,7 @@
 
 QuPath Edu is a project which contains three components: *QuPath Edu Extension*, *QuPath Edu Server* and *QuPath Edu Cloud _(to be renamed)_*.
 
-https://github.com/yli-hallila/qupath-edu-extension[*QuPath Edu Extension*] is an extension for https://qupath.github.io/[QuPath], which allows QuPath to communicate with a https://github.com/yli-hallila/qupath-edu-server[*QuPath Edu Server*], thus making it possible to view, edit and modify QuPath projects (called _Lessons_ in QuPath Edu). The *QuPath Edu Server* handles all the heavy lifting required to authenticate users, upload & delete new slides, manage data and so on. _QuPath Edu_ is also compatible with other data sources, such as https://github.com/qupath/qupath-extension-omero[Omero]. 
+https://github.com/yli-hallila/qupath-edu-extension[*QuPath Edu Extension*] is an extension for https://qupath.github.io/[QuPath], which allows QuPath to communicate with a https://github.com/yli-hallila/qupath-edu-server[*QuPath Edu Server*], thus making it possible to view, edit and modify QuPath projects (called _Lessons_ in QuPath Edu). The *QuPath Edu Server* handles all the heavy lifting required to authenticate users, upload new slides, manage data and so on. _QuPath Edu_ is also compatible with other data sources, such as https://github.com/qupath/qupath-extension-omero[Omero]. 
 
 QuPath Edu also includes https://github.com/yli-hallila/qupath-edu-cloud[*QuPath Edu Cloud* _(to be renamed)_], which is a web application that communicates with a *QuPath Edu Server* and can be used for *viewing* projects. 
 

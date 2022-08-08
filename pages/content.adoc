@@ -18,7 +18,9 @@ image::Select-Lesson.png[Select lesson dialog]
 
 Create new workspaces by pressing btn:[Create ...] and selecting either `Workspace`, `Course` or `Lesson`. `Course` and `Lesson` are disabled until you select a `Workspace`.
 
-*Delete or rename* any `Workspace`, `Lesson` or `Class` by right-clicking on it. You can also *hide* `Classs`  or set a *description*. Hiding a Class will hide that Class from any guests or users without write permissions. Deleting a `Workspace` will delete all `Lessons` and `Classes` belonging to that `Workspace` and similarly deleting a `Lesson` will delete all `Classes` belonging to that `Lesson`.
+*Delete or rename* any `Workspace`, `Lesson` or `Class` by right-clicking on it. You can also *hide* Classes  or set a *description*. Hiding a Class will hide that Class from guests and users without write permissions. Deleting a Workspace will delete all Lessons and Classes belonging to that Workspace and similarly deleting a Lesson will delete all Classes belonging to that Lesson.
+
+WARNING: Deleting a workspace, lesson or class is currently not reversible. See <<Backups>> for more details.
 
 ==== Adding slides to a lesson
 
@@ -48,7 +50,7 @@ image::WYSIWYG-Editor.png[Rich text editor]
 [#img-create-slidetour]
 image::Create-Slide-Tour.png[Create Slide tour]
 
-Slide tours consists of *"frames"*, which the user views one-by-one. To create a *Slide tour*, press on btn:[Create tour] tour on the Viewers top-left corner. Next click on menu:More ⋮[Create new frame], and pan & zoom on the point of interest, make any annotations you wish. Set a description for this frame by pressing menu:More ⋮[Edit text]. Save changes by clicking on menu:More ⋮[Save changes]. Create as many frames you wish by clicking menu:More ⋮[Create new frame] and again making any annotations, panning & zooming, setting a description and saving the changes with menu:More ⋮[Save changes]. Preview your slide tour by clicking on btn[Previous] and btn[Next].
+Slide tours consists of *"frames"*, which the user views one-by-one. To create a *Slide tour*, press on btn:[Create tour] tour on the Viewers top-left corner. Next click on menu:More ⋮[Create new frame], and pan & zoom on the point of interest, make any annotations you wish. Set a description for this frame by pressing menu:More ⋮[Edit text]. Save changes by clicking on menu:More ⋮[Save changes]. Create as many frames you wish by clicking menu:More ⋮[Create new frame] and again making any annotations, panning & zooming, setting a description and saving the changes with menu:More ⋮[Save changes]. Preview your slide tour by clicking on btn:[Previous] and btn:[Next].
 
 .Slide tour editing interface
 [#img-slidetour]
