@@ -1,5 +1,5 @@
-= Open Microanatomy Handbook (draft)
-v1.0 draft, 1.8.2022
+= Open Microanatomy Handbook
+v1.0 draft, 1.10.2022
 :toc: left
 :toclevels: 3
 :imagesdir: images
@@ -13,6 +13,35 @@ v1.0 draft, 1.8.2022
 include::pages/introduction.adoc[]
 
 == Getting started
+
+=== Feature comparison
+
+✅ = supported ❌ = not supported _(and currently no plans to implement)_ 👷‍♀ = work in progress
+
+[cols="1,1,1"]
+|===
+|Feature |Browser / Mobile|Desktop app
+
+|View slides
+|✅
+|✅
+
+|Slide tours
+|👷‍♀️
+|✅
+
+|<<Creating content>>
+|❌
+|✅
+
+|<<Administrative tasks>>
+|❌
+|✅
+
+|Authentication
+|👷‍♀️
+|✅
+|===
 
 === Prerequisites
 
