@@ -1,10 +1,10 @@
 === What is Open Microanatomy
 
-Open Microanatomy is a project which contains three components: *QuPath Edu Extension*, *Open Microanatomy Server* and *Open Microanatomy Cloud*.
+Open Microanatomy is a project built on top of QuPath which contains three components: *Open Microanatomy Server*, *Open Microanatomy Cloud* and *QuPath Edu Extension*.
 
-https://github.com/yli-hallila/qupath-edu-extension[*QuPath Edu Extension*] is an extension for https://qupath.github.io/[QuPath], which allows QuPath to communicate with a https://github.com/yli-hallila/qupath-edu-server[*Open Microanatomy Server*], thus making it possible to view, edit and modify QuPath projects (called _Lessons_ in QuPath Edu). The *Open Microanatomy Server* handles all the heavy lifting required to authenticate users, upload new slides, manage data and so on. _QuPath Edu_ is also compatible with other data sources, such as https://github.com/qupath/qupath-extension-omero[Omero].
+https://github.com/openmicroanatomy/qupath-extension[*QuPath Edu Extension*] is an extension for https://qupath.github.io/[QuPath], which allows QuPath projects (called _Lessons_ in QuPath Edu) to be synced between multiple users via an https://github.com/openmicroanatomy/server[*Open Microanatomy Server*]. The *Open Microanatomy Server* handles all the heavy lifting required to authenticate users, upload new slides, manage data and so on. _QuPath Edu_ is also compatible with other data sources, such as https://github.com/qupath/qupath-extension-omero[Omero].
 
-Open Microanatomy also includes https://github.com/yli-hallila/qupath-edu-cloud[*Open Microanatomy Cloud*], which is a web application that communicates with a *Open Microanatomy Server* and can be used for *viewing* projects.
+Open Microanatomy also includes https://github.com/openmicroanatomy/web[*Open Microanatomy Cloud*], which is a web application that communicates with a *Open Microanatomy Server* and can be used for *viewing* projects.
 
 .Visual representation of different Open Microanatomy components and how they communicate with each other. Blue components are downloaded by the end-user and the green components are setup by the system administrator
 [#img-components]
