@@ -4,16 +4,16 @@
 
 === Installation & Running
 
-QuPath Edu Server consists of two components: the *server* itself and of a *tiler* which converts slides into smaller chunks called *tiles*. You must be running both the *server _and_ tiler* for QuPath Edu to function normally: without the tiler you _cannot_ upload new slides. 
+Open Microanatomy Server consists of two components: the *server* itself and of a *tiler* which converts slides into smaller chunks called *tiles*. You must be running both the *server _and_ tiler* for Open Microanatomy to function normally: without the tiler you _cannot_ upload new slides.
 
-It's advised to create a separate user, such as `edu` and to use software such as `screen` to create separate sessions for both instances. Both the tiler and server must be running from the same same location.
+It's advised to create a separate user, such as `openmicroanatomy` and to use software such as `screen` to create separate sessions for both instances. Both the tiler and server must be running from the same same location.
 
 ==== Installation (Linux)
 
 _These instructions assume you're familiar with Linux already and skips multiple crucial steps such as creating a new user._
 
-1. Download the latest `qupath-edu-server.jar` from GitHub releases.
-2. Save it to e.g. `/home/edu/server/qupath-edu-server.jar`
+1. Download the latest `open-microanatomy-server.jar` from GitHub releases.
+2. Save it to e.g. `/home/openmicroanatomy/server/open-microanatomy-server.jar`
 3. Extract OpenSlide Binaries
 - _these are currently only available from the https://github.com/qupath/qupath/tree/main/maven/repo/org/openslide/openslide/3.4.1_2[QuPath repository] -- download the `.jar` file specific to your operating system and *extract* it to where you saved `qupath-edu-server.jar`._
 
@@ -35,17 +35,17 @@ To *generate a new configuration*, simply delete the old one and restart the ser
 
 The *most important configuration step* is setting the `server.host` parameter to your host and port -- this should point to your reverse proxy address (see <<SSL>> chapter). *Your server _will not_ function properly if you do not set the host parameter.*
 
-For storing the tiles there are two options. *Flatfile* storage uses the QuPath Edu Server to store any tiles. For *Cloud storage* currently *CSC Allas* is only supported, with initial support for *Amazon S3* existing. If you're interested in support for Amazon S3, please create a GitHub issue regarding this.
+For storing the tiles there are two options. *Flatfile* storage uses the Open Microanatomy Server to store any tiles. For *Cloud storage* currently *CSC Allas* is only supported, with initial support for *Amazon S3* existing. If you're interested in support for Amazon S3, please create a GitHub issue regarding this.
 
 === SSL
 
-QuPath Edu Server does *not* support SSL and it is up to the end-user to setup a *reverse proxy* using software such as nginx or Apache to provide a secure connection.
+Open Microanatomy Server does *not* support SSL and it is up to the end-user to set up a *reverse proxy* using software such as nginx or Apache to provide a secure connection.
 
 Below is a example nginx reverse proxy configuration using https://certbot.eff.org/[Certbot].
 
 ```
 server {
-    server_name qupath.edu.server;
+    server_name open.microanatomy.server;
 
     access_log /var/log/nginx/reverse-access.log;
     error_log /var/log/nginx/reverse-error.log;
@@ -58,25 +58,25 @@ server {
 
     listen [::]:443 ssl;
     listen 443 ssl;
-    ssl_certificate /etc/letsencrypt/live/qupath.edu.server/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/qupath.edu.server/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/open.microanatomy.server/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/open.microanatomy.server/privkey.pem;
     include /etc/letsencrypt/options-ssl-nginx.conf;
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 
 }
 server {
-    if ($host = qupath.edu.server) {
+    if ($host = open.microanatomy.server) {
         return 301 https://$host$request_uri;
     }
 
     listen 80;
     listen [::]:80;
 
-    server_name qupath.edu.server;
+    server_name open.microanatomy.server;
     return 404;
 }
 ```
 
 === HTTP API
 
-QuPath Edu Server includes a *REST API* -- documentation is available https://edu.qupath.yli-hallila.fi/docs/#/[here].
+Open Microanatomy Server includes a *REST API* -- documentation is available https://edu.qupath.yli-hallila.fi/docs/#/[here].

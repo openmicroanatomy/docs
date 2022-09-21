@@ -12,7 +12,7 @@ You can change your host later by clicking the *Change host ...* link on the *Lo
 
 You can continue either *Continue as a guest* _(only read permissions)_ or authenticate using *Credentials* _(regular email & password combination)_ or a *Microsoft account*.
 
-NOTE: Logging in using Credentials and/or Microsoft Authentication may not be available on your organization depending on your _QuPath Edu Server_ setup.
+NOTE: Logging in using Credentials and/or Microsoft Authentication may not be available on your organization depending on your _Open Microanatomy Server_ setup.
 
 .Login dialog. Change host by pressing the btn:[Change host ...] on the bottom-right hand corner.
 [#img-login]

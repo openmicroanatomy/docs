@@ -1,4 +1,4 @@
-Most administrative tools are available by selecting menu:QuPath Edu[...] from the QuPath top bar. Some administrative tasks requires access to the server and are detailed in the <<QuPath Edu Server>> chapter.
+Most administrative tools are available by selecting menu:QuPath Edu[...] from the QuPath top bar. Some administrative tasks requires access to the server and are detailed in the <<Open Microanatomy Server>> chapter.
 
 ==== Users & Roles
 
@@ -42,11 +42,11 @@ image::Slide-Management.png[Slide management interface]
 
 Users with the *Administrative tasks* roles are able to view & modify all slides regardless of organization. Users with only the *Manage slides* roles can only view & modify slides that belong to the users organization.
 
-*Import new slides* by clicking the btn:[Import slide] button. QuPath verifies that the selected slide is compatible with QuPath Edu and starts uploading it. After upload the QuPath Edu Server processes the slide which can take up to 30 minutes depending on the slide size and server performance.
+*Import new slides* by clicking the btn:[Import slide] button. QuPath verifies that the selected slide is compatible with QuPath Edu and starts uploading it. After upload the Open Microanatomy Server processes the slide which can take up to 30 minutes depending on the slide size and server performance.
 
 *Deleting* a slide will make it inaccessible from any Lesson that contains it but *will not* remove it from the slide listing. Deleted slides must be removed manually from each lesson also. *Renaming* a slide will only affect slides added in the future.
 
-WARNING: In QuPath Edu Server *version 1.0* deleting slides only makes them inaccessible but *does not* remove the data stored. It is up to the server administrator to delete any associated data. 
+WARNING: In Open Microanatomy Server *version 1.0* deleting slides only makes them inaccessible but *does not* remove the data stored. It is up to the server administrator to delete any associated data.
 
 You can view any slide by clicking on btn:[Open selected]. If you have a lesson open, you will be prompted to add that slide to the current project.
 

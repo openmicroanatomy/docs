@@ -1,4 +1,4 @@
-= QuPath Edu Handbook (draft)
+= Open Microanatomy Handbook (draft)
 v1.0 draft, 1.8.2022
 :toc: left
 :toclevels: 3
@@ -8,7 +8,7 @@ v1.0 draft, 1.8.2022
 
 *This documentation is currently work in progress* 
 
-== Introduction to QuPath Edu
+== Introduction to Open Microanatomy
 
 include::pages/introduction.adoc[]
 
@@ -20,13 +20,13 @@ include::pages/introduction.adoc[]
 
 - A 64-bit Windows, macOS or Linux machine, with at least 250 MB of disk space
 
-*QuPath Edu Cloud*
+*Open Microanatomy Cloud*
 
 - None
 
-*QuPath Edu Server*
+*Open Microanatomy Server*
 
-- See <<QuPath Edu Server>> chapter.
+- See <<Open Microanatomy Server>> chapter.
 
 === Installing QuPath Edu Extension
 
@@ -51,12 +51,12 @@ include::pages/content.adoc[]
 
 include::pages/administrative.adoc[]
 
-== QuPath Edu Cloud _(to be renamed)_
+== Open Microanatomy Cloud
 
 *Documentation in progress*. 
 
-Source code and more details are available at https://github.com/yli-hallila/qupath-edu-cloud[yli-hallila/qupath-edu-cloud].
+Source code and more details are available at https://github.com/openmicroanatomy/web[openmicroanatomy/web].
 
-== QuPath Edu Server
+== Open Microanatomy Server
 
 include::pages/server.adoc[]
