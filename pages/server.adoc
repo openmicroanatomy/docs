@@ -1,47 +1,112 @@
-=== Prerequisites
-
-- Java 14 or newer
+NOTE: The Docker container is still in beta but is stable for production use.
 
 === Installation & Running
 
-Open Microanatomy Server consists of two components: the *server* itself and of a *tiler* which converts slides into smaller chunks called *tiles*. You must be running both the *server _and_ tiler* for Open Microanatomy to function normally: without the tiler you _cannot_ upload new slides.
+OpenMicroanatomy Server consists of two components: a *HTTP server* which handles authentication, data (slides, projects, backups, etc...) and so on, and of a *tiler* which runs in the background and converts slides into smaller chunks called *tiles*. Without the *tiler* running you cannot upload new slides; this separation of tasks is due to legacy reasons and both components are hopefully bundled together in version 2.0.
 
-It's advised to create a separate user, such as `openmicroanatomy` and to use software such as `screen` to create separate sessions for both instances. Both the tiler and server must be running from the same same location.
+==== Installation (Docker)
 
-==== Installation (Linux)
+===== Prerequisites
+
+- Server with Docker support
+
+===== Installation
+
+1. To get started, download the OpenMicroanatomy Docker configuration: `wget https://raw.githubusercontent.com/openmicroanatomy/hosting/main/docker-compose.yml`
+3. `cd hosting`
+2. Start the server for the first time using `docker-compose run server`
+3. Follow the instructions to create the initial organization and administrator account.
+    - Organization name and administrator account can be edited later
+4. After creating the initial organization and administrator account stop the server by inputting `stop` into the terminal or by pressing `CTRL + A` + `CTRL + C` to exit.
+5. Edit the `application.conf` using e.g. `nano` or `vi`
+    - Most important step is to configure `server.host` to match your reverse proxy address; otherwise slides _will not work_ and fixing them later is can be cumbersome -- see <<Fixing Incorrect Slide Paths>>.
+    - See <<Configuration>> chapter below for more details.
+6. Start the server using `docker-compose up -d` which will start both the *Server* and *Tiler*.
+
+_If you wish to run OpenMicroanatomy without the *Tiler*, just ccomment the lines for *Tiler* inside `docker-compose.yml`._
+
+===== Updating
+
+OpenMicroanatomy uses semantic versioning `MAJOR.MINOR.PATCH`, meaning no breaking changes happen unless the major version changes (e.g. from 1.X.X to 2.X.X). If you're using `:latest` (default) as the Docker container version you may accidentally update to a newer major version. It is recommended that you pin your version to e.g. `:v1` to allow minor and patch upgrades or `v1.1` to allow only patches by editing  `docker-compose.yml`.
+
+1. `docker-compose down`
+2. `docker pull openmicroanatomy`
+3. `docker-compose up -d`
+
+==== Installation (Manually)
+
+WARNING: Manual OpenMicroanatomy installations are no longer supported. Assistance for any issues with manual installations *cannot be guaranteed*.
+
+===== Prerequisites
+
+- Server with Java 14 support
+
+===== Installation
 
 _These instructions assume you're familiar with Linux already and skips multiple crucial steps such as creating a new user._
 
-1. Download the latest `open-microanatomy-server.jar` from GitHub releases.
+It's advised to create a separate user, such as `openmicroanatomy` and to use software such as `screen` to create separate sessions for both instances. Both the tiler and server must be running on the same server.
+
+1. Download the latest `open-microanatomy-server.jar` from https://github.com/openmicroanatomy/server/releases[GitHub].
 2. Save it to e.g. `/home/openmicroanatomy/server/open-microanatomy-server.jar`
 3. Extract OpenSlide Binaries
 - _these are currently only available from the https://github.com/qupath/qupath/tree/main/maven/repo/org/openslide/openslide/3.4.1_2[QuPath repository] -- download the `.jar` file specific to your operating system and *extract* it to where you saved `qupath-edu-server.jar`._
 
-==== Running the server
+===== Running the server
 
 1. Start the server with `java -jar <jar> [-port <port>]`
 2. During your initial start-up, you will create your first administrator account.
 
-==== Running the tiler
+===== Running the tiler
 
 1. Start the tiler with `java -jar <jar> --tiler`
 2. Tiler validates that everything is working as expected and will wait for new slides.
 
+===== Updating
+
+Download the latest `open-microanatomy-server.jar` from GitHub and restart any running `screen`.
+
+===== Systemd service
+
+To start OpenMicroanatomy automatically or restart it in case the process gets killed, you can create a *Systemd* service for it.
+
 === Configuration
 
-Configuration is available at `application.conf` which will be generated during your initial start-up. The `application.conf` contains comments for configuration instructions. 
+Configuration is available at `application.conf` which will be generated during the initial start-up, it contains comments for instructions. The default configuration has sensible defaults, but you're free to tweak anything you wish.
 
-To *generate a new configuration*, simply delete the old one and restart the server. To *reload the configuration*, you must restart the server.
+The *only required configuration step* is setting the `server.host` parameter -- this should point to your reverse proxy address (see <<SSL>> chapter). *Your server _will not_ function properly if you do not set the host parameter.*
 
-The *most important configuration step* is setting the `server.host` parameter to your host and port -- this should point to your reverse proxy address (see <<SSL>> chapter). *Your server _will not_ function properly if you do not set the host parameter.*
+For storing the tiles there are two options. *Flatfile (default)* storage uses the servers disk to store any tiles. For *Cloud storage* currently *https://docs.csc.fi/data/Allas/[CSC Allas]* is only supported, with initial support for *Amazon S3* existing. If you're interested in support for https://aws.amazon.com/s3/[Amazon S3] or any other cloud provider, please create a https://github.com/openmicroanatomy/server/issues[GitHub issue] regarding this.
 
-For storing the tiles there are two options. *Flatfile* storage uses the Open Microanatomy Server to store any tiles. For *Cloud storage* currently *CSC Allas* is only supported, with initial support for *Amazon S3* existing. If you're interested in support for Amazon S3, please create a GitHub issue regarding this.
+To *generate a new configuration* simply delete the old one and restart the server. To *reload the configuration* you must restart the server.
 
 === SSL
 
-Open Microanatomy Server does *not* support SSL and it is up to the end-user to set up a *reverse proxy* using software such as nginx or Apache to provide a secure connection.
+Open Microanatomy does *not* include SSL by default and it is up to the end-user to set up a *reverse proxy* using software such as https://caddyserver.com/[Caddy], https://www.nginx.com/[nginx] or https://httpd.apache.org/[Apache] to provide a secure connection.
 
-Below is a example nginx reverse proxy configuration using https://certbot.eff.org/[Certbot].
+==== No existing reverse proxy
+
+If your DNS includes an automatic SSL proxy option, feel free to try that. Alternatively you can set up your own Caddy server as a reverse proxy or use the provided Caddy Docker container as described below.
+
+===== Setting up a Caddy server using Docker
+
+1. Shut down any Docker instances: `docker-compose down`
+2. Download the _Caddy Docker configuration_ using `wget https://raw.githubusercontent.com/openmicroanatomy/hosting/main/docker-compose.caddy.yml`
+3. Edit the _Caddy Docker configuration_: `nano docker-compose.caddy.yml`
+4. Change `virtual.host` to your domain name without `https://` e.g.: `virtual.host: 'example.com'`
+5. Change `virtual.tls-address` to your administrator email account e.g. `virtual.tls-address: 'john.smith@example.com'` -- this is not revealed to anyone and only used by CertBot to notify about any issues with the SSL certificate.
+6. **Save and exit **
+7. Edit the _OpenMicroanatomy Docker configuration_: `nano docker-compose.yml`
+8. Under `ports` change `- '7777:7777'` to `- '127.0.0.1:7777:7777` to prohibit access using insecure HTTP
+9. **Save and exit**
+10. Run `docker-compose -f docker-compose.yml -f docker-compose.caddy.yml up -D` to restart server
+11. *Done*: OpenMicroanatomy should be accessible via `https://example.com`
+
+==== Existing reverse proxy
+
+Configure your existing Apache / nginx server to behave as a reverse proxy for OpenMicroanatomy.
+
+Below is an example nginx reverse proxy configuration using https://certbot.eff.org/[Certbot].
 
 ```
 server {
@@ -62,8 +127,8 @@ server {
     ssl_certificate_key /etc/letsencrypt/live/open.microanatomy.server/privkey.pem;
     include /etc/letsencrypt/options-ssl-nginx.conf;
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
-
 }
+
 server {
     if ($host = open.microanatomy.server) {
         return 301 https://$host$request_uri;
@@ -77,6 +142,23 @@ server {
 }
 ```
 
+=== Troubleshooting
+
+==== Fixing Incorrect Slide Paths
+
+Uploading slides with an incorrect `server.path` inside `application.conf` will result in QuPath and OpenMicroanatomy Cloud not knowing where the slides are actually stored and making them inaccessible. The `server.path` is encoded within each slides `.properties` file when uploaded, thus requiring them to be manually updated if the `server.path` is changed.
+
+To check for any incorrect paths run the following command in the server root directory.
+
+`cd slides && cat *.properties || grep "<your previous server.path>"`
+
+---
+
+1. Backup slides: `cp -R slides slides-backup`
+2. Switch to slides directory: `cd slides`
+3. Perform a Search & Replace: `sed -i -- 's/<previous server.path>/<new server.path>/g' *`
+4. Validate that all instances have been replaced: `cat *.properties || grep "<your previous server.path>"``
+
 === HTTP API
 
-Open Microanatomy Server includes a *REST API* -- documentation is available https://edu.qupath.yli-hallila.fi/docs/#/[here].
+Open Microanatomy Server includes a *REST API* -- documentation is available https://demo.edu.qupath.yli-hallila.fi/swagger[here].

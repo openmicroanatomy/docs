@@ -1,5 +1,5 @@
 = Open Microanatomy Handbook
-v1.0 draft, 1.10.2022
+v1.0 draft, 1.1.2023
 :toc: left
 :toclevels: 3
 :imagesdir: images
@@ -7,6 +7,8 @@ v1.0 draft, 1.10.2022
 :xrefstyle: short
 
 *This documentation is currently work in progress* 
+
+NOTE: QuPath Edu Server and Cloud were recently renamed to OpenMicroanatomy Server and OpenMicroanatomy Cloud. QuPath Edu Extension continues with the previous name.
 
 == Introduction to Open Microanatomy
 
