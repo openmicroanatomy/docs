@@ -97,7 +97,7 @@ By default, when creating a new workspace, it is automatically assigned the *Wri
 
 Simply use btn:[&rsaquo;], btn:[&raquo;]btn:[&lsaquo;] and btn:[&laquo;] to add/remove permissions. Double-arrows moves *all items* and single-arrows move *only the selected item*. Clicking btn:[?] will give you an analysis of who has read/write permissions in plain English.
 
-Remember to press btn:[Save changes] _(bottom right-hand corner)_; currently QuPath Edu gives *no warning* if forgetting to save any changes.
+Remember to press btn:[Save changes] _(bottom right-hand corner)_ separately on "Read" and "Write" respectively; currently QuPath Edu gives *no warning* if forgetting to save any changes.
 
 .Permission management interface. *1:* List of all workspaces, the organization is specified in parentheses. *2 & 3:* Read & write permissions separated in different tabs. *4 & 5:* Left pane indicates any users/organizations available and right pane indicates users/organizations with active permissions.  
 [#img-permission-management]
