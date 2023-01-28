@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.18">
-<meta name="author" content="v1.0 draft, 1.1.2023">
-<title>Open Microanatomy Handbook</title>
+<meta name="author" content="v1.0 draft, 28.1.2023">
+<title>OpenMicroanatomy Handbook</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -439,16 +439,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>Open Microanatomy Handbook</h1>
+<h1>OpenMicroanatomy Handbook</h1>
 <div class="details">
-<span id="author" class="author">v1.0 draft, 1.1.2023</span><br>
+<span id="author" class="author">v1.0 draft, 28.1.2023</span><br>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_introduction_to_open_microanatomy">Introduction to Open Microanatomy</a>
+<li><a href="#_introduction_to_openmicroanatomy">Introduction to OpenMicroanatomy</a>
 <ul class="sectlevel2">
-<li><a href="#_what_is_open_microanatomy">What is Open Microanatomy</a></li>
+<li><a href="#_what_is_openmicroanatomy">What is OpenMicroanatomy</a></li>
 <li><a href="#_hierarchy">Hierarchy</a></li>
 </ul>
 </li>
@@ -488,8 +488,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 </ul>
 </li>
-<li><a href="#_open_microanatomy_cloud">Open Microanatomy Cloud</a></li>
-<li><a href="#_open_microanatomy_server">Open Microanatomy Server</a>
+<li><a href="#_openmicroanatomy_cloud">OpenMicroanatomy Cloud</a></li>
+<li><a href="#_openmicroanatomy_server">OpenMicroanatomy Server</a>
 <ul class="sectlevel2">
 <li><a href="#_installation_running">Installation &amp; Running</a>
 <ul class="sectlevel3">
@@ -536,39 +536,39 @@ QuPath Edu Server and Cloud were recently renamed to OpenMicroanatomy Server and
 </div>
 </div>
 <div class="sect1">
-<h2 id="_introduction_to_open_microanatomy">Introduction to Open Microanatomy</h2>
+<h2 id="_introduction_to_openmicroanatomy">Introduction to OpenMicroanatomy</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_what_is_open_microanatomy">What is Open Microanatomy</h3>
+<h3 id="_what_is_openmicroanatomy">What is OpenMicroanatomy</h3>
 <div class="paragraph">
-<p>Open Microanatomy is a project built on top of QuPath which contains three components: <strong>Open Microanatomy Server</strong>, <strong>Open Microanatomy Cloud</strong> and <strong>QuPath Edu Extension</strong>.</p>
+<p>OpenMicroanatomy is a project built on top of QuPath which contains three components: <strong>OpenMicroanatomy Server</strong>, <strong>OpenMicroanatomy Cloud</strong> and <strong>QuPath Edu Extension</strong>.</p>
 </div>
 <div class="paragraph">
-<p><a href="https://github.com/openmicroanatomy/qupath-extension"><strong>QuPath Edu Extension</strong></a> is an extension for <a href="https://qupath.github.io/">QuPath</a>, which allows QuPath projects (called <em>Lessons</em> in QuPath Edu) to be synced between multiple users via an <a href="https://github.com/openmicroanatomy/server"><strong>Open Microanatomy Server</strong></a>. The <strong>Open Microanatomy Server</strong> handles all the heavy lifting required to authenticate users, upload new slides, manage data and so on. <em>QuPath Edu</em> is also compatible with other data sources, such as <a href="https://github.com/qupath/qupath-extension-omero">Omero</a>.</p>
+<p><a href="https://github.com/openmicroanatomy/qupath-extension"><strong>QuPath Edu Extension</strong></a> is an extension for <a href="https://qupath.github.io/">QuPath</a>, which allows QuPath projects (called <em>Lessons</em> in QuPath Edu) to be synced between multiple users via an <a href="https://github.com/openmicroanatomy/server"><strong>OpenMicroanatomy Server</strong></a>. The <strong>OpenMicroanatomy Server</strong> handles all the heavy lifting required to authenticate users, upload new slides, manage data and so on. <em>QuPath Edu</em> is also compatible with other data sources, such as <a href="https://github.com/qupath/qupath-extension-omero">Omero</a>.</p>
 </div>
 <div class="paragraph">
-<p>Open Microanatomy also includes <a href="https://github.com/openmicroanatomy/web"><strong>Open Microanatomy Cloud</strong></a>, which is a web application that communicates with a <strong>Open Microanatomy Server</strong> and can be used for <strong>viewing</strong> projects.</p>
+<p>OpenMicroanatomy also includes <a href="https://github.com/openmicroanatomy/web"><strong>OpenMicroanatomy Cloud</strong></a>, which is a web application that communicates with a <strong>OpenMicroanatomy Server</strong> and can be used for <strong>viewing</strong> projects.</p>
 </div>
 <div id="img-components" class="imageblock">
 <div class="content">
 <img src="images/Components.png" alt="Components">
 </div>
-<div class="title">Figure 1. Visual representation of different Open Microanatomy components and how they communicate with each other. Blue components are downloaded by the end-user and the green components are setup by the system administrator</div>
+<div class="title">Figure 1. Visual representation of different OpenMicroanatomy components and how they communicate with each other. Green components are downloaded by the end-user and the blue components are set up by the system administrator. Red are optional third-party features.</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_hierarchy">Hierarchy</h3>
 <div class="paragraph">
-<p>A <strong>Open Microanatomy Server</strong> is <em>“compartmentalized”</em> as shown in <strong>Figure 2.</strong> Each server can host one or multiple <em>Organizations</em>. Each organization has its own <em>Workspaces</em>, which hold <em>Classes</em>, which contain the <em>Lessons</em>. See <strong>Table 1</strong> for how to think about these.</p>
+<p>A <strong>OpenMicroanatomy Server</strong> is <em>“compartmentalized”</em> as shown in <strong>Figure 2.</strong> Each server can host one or multiple <em>Organizations</em>. Each organization has its own <em>Workspaces</em>, which hold <em>Classes</em>, which contain the <em>Lessons</em>. See <strong>Table 1</strong> for how to think about these.</p>
 </div>
 <div id="img-hierarchy" class="imageblock">
 <div class="content">
 <img src="images/Hierarchy.png" alt="Hierarchy">
 </div>
-<div class="title">Figure 2. A demonstration of the Open Microanatomy hierarchy, with a server with three different organizations.</div>
+<div class="title">Figure 2. A demonstration of the OpenMicroanatomy hierarchy, with a server with three different organizations.</div>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 1. Translations for different Open Microanatomy components</caption>
+<caption class="title">Table 1. Translations for different OpenMicroanatomy components</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -630,7 +630,7 @@ QuPath Edu Server and Cloud were recently renamed to OpenMicroanatomy Server and
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Slide tours</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">👷‍♀️</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✅️</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">✅</p></td>
 </tr>
 <tr>
@@ -664,7 +664,7 @@ QuPath Edu Server and Cloud were recently renamed to OpenMicroanatomy Server and
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Open Microanatomy Cloud</strong></p>
+<p><strong>OpenMicroanatomy Cloud</strong></p>
 </div>
 <div class="ulist">
 <ul>
@@ -674,12 +674,12 @@ QuPath Edu Server and Cloud were recently renamed to OpenMicroanatomy Server and
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Open Microanatomy Server</strong></p>
+<p><strong>OpenMicroanatomy Server</strong></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>See <a href="#_open_microanatomy_server">Open Microanatomy Server</a> chapter.</p>
+<p>See <a href="#_openmicroanatomy_server">OpenMicroanatomy Server</a> chapter.</p>
 </li>
 </ul>
 </div>
@@ -737,7 +737,7 @@ QuPath Edu Server and Cloud were recently renamed to OpenMicroanatomy Server and
 <div class="title">Note</div>
 </td>
 <td class="content">
-Logging in using Credentials and/or Microsoft Authentication may not be available on your organization depending on your <em>Open Microanatomy Server</em> setup.
+Logging in using Credentials and/or Microsoft Authentication may not be available on your organization depending on your <em>OpenMicroanatomy Server</em> setup.
 </td>
 </tr>
 </table>
@@ -861,7 +861,7 @@ Deleting a workspace, lesson or class is currently not reversible. See <a href="
 <div class="sect2">
 <h3 id="_administrative_tasks">Administrative tasks</h3>
 <div class="paragraph">
-<p>Most administrative tools are available by selecting <span class="menuseq"><b class="menu">QuPath Edu</b>&#160;<b class="caret">&#8250;</b> <b class="menuitem">&#8230;&#8203;</b></span> from the QuPath top bar. Some administrative tasks requires access to the server and are detailed in the <a href="#_open_microanatomy_server">Open Microanatomy Server</a> chapter.</p>
+<p>Most administrative tools are available by selecting <span class="menuseq"><b class="menu">QuPath Edu</b>&#160;<b class="caret">&#8250;</b> <b class="menuitem">&#8230;&#8203;</b></span> from the QuPath top bar. Some administrative tasks requires access to the server and are detailed in the <a href="#_openmicroanatomy_server">OpenMicroanatomy Server</a> chapter.</p>
 </div>
 <div class="sect3">
 <h4 id="_users_roles">Users &amp; Roles</h4>
@@ -930,7 +930,7 @@ Deleting a workspace, lesson or class is currently not reversible. See <a href="
 <p>Users with the <strong>Administrative tasks</strong> roles are able to view &amp; modify all slides regardless of organization. Users with only the <strong>Manage slides</strong> roles can only view &amp; modify slides that belong to the users organization.</p>
 </div>
 <div class="paragraph">
-<p><strong>Import new slides</strong> by clicking the <b class="button">Import slide</b> button. QuPath verifies that the selected slide is compatible with QuPath Edu and starts uploading it. After upload the Open Microanatomy Server processes the slide which can take up to 30 minutes depending on the slide size and server performance.</p>
+<p><strong>Import new slides</strong> by clicking the <b class="button">Import slide</b> button. QuPath verifies that the selected slide is compatible with QuPath Edu and starts uploading it. After upload the OpenMicroanatomy Server processes the slide which can take up to 30 minutes depending on the slide size and server performance.</p>
 </div>
 <div class="paragraph">
 <p><strong>Deleting</strong> a slide will make it inaccessible from any Lesson that contains it but <strong>will not</strong> remove it from the slide listing. Deleted slides must be removed manually from each lesson also. <strong>Renaming</strong> a slide will only affect slides added in the future.</p>
@@ -942,7 +942,7 @@ Deleting a workspace, lesson or class is currently not reversible. See <a href="
 <div class="title">Warning</div>
 </td>
 <td class="content">
-In Open Microanatomy Server <strong>version 1.0</strong> deleting slides only makes them inaccessible but <strong>does not</strong> remove the data stored. It is up to the server administrator to delete any associated data.
+In OpenMicroanatomy Server <strong>version 1.0</strong> deleting slides only makes them inaccessible but <strong>does not</strong> remove the data stored. It is up to the server administrator to delete any associated data.
 </td>
 </tr>
 </table>
@@ -1045,7 +1045,7 @@ In QuPath Edu Server version 1.0 a bug exists, which allows users with write per
 <p>Simply use <b class="button">&rsaquo;</b>, <b class="button">&raquo;</b><b class="button">&lsaquo;</b> and <b class="button">&laquo;</b> to add/remove permissions. Double-arrows moves <strong>all items</strong> and single-arrows move <strong>only the selected item</strong>. Clicking <b class="button">?</b> will give you an analysis of who has read/write permissions in plain English.</p>
 </div>
 <div class="paragraph">
-<p>Remember to press <b class="button">Save changes</b> <em>(bottom right-hand corner)</em>; currently QuPath Edu gives <strong>no warning</strong> if forgetting to save any changes.</p>
+<p>Remember to press <b class="button">Save changes</b> <em>(bottom right-hand corner)</em> separately on "Read" and "Write" respectively; currently QuPath Edu gives <strong>no warning</strong> if forgetting to save any changes.</p>
 </div>
 <div id="img-permission-management" class="imageblock">
 <div class="content">
@@ -1058,7 +1058,7 @@ In QuPath Edu Server version 1.0 a bug exists, which allows users with write per
 </div>
 </div>
 <div class="sect1">
-<h2 id="_open_microanatomy_cloud">Open Microanatomy Cloud</h2>
+<h2 id="_openmicroanatomy_cloud">OpenMicroanatomy Cloud</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Documentation in progress</strong>.</p>
@@ -1069,7 +1069,7 @@ In QuPath Edu Server version 1.0 a bug exists, which allows users with write per
 </div>
 </div>
 <div class="sect1">
-<h2 id="_open_microanatomy_server">Open Microanatomy Server</h2>
+<h2 id="_openmicroanatomy_server">OpenMicroanatomy Server</h2>
 <div class="sectionbody">
 <div class="admonitionblock note">
 <table>
@@ -1279,7 +1279,7 @@ Manual OpenMicroanatomy installations are no longer supported. Assistance for an
 <div class="sect2">
 <h3 id="_ssl">SSL</h3>
 <div class="paragraph">
-<p>Open Microanatomy does <strong>not</strong> include SSL by default and it is up to the end-user to set up a <strong>reverse proxy</strong> using software such as <a href="https://caddyserver.com/">Caddy</a>, <a href="https://www.nginx.com/">nginx</a> or <a href="https://httpd.apache.org/">Apache</a> to provide a secure connection.</p>
+<p>OpenMicroanatomy does <strong>not</strong> include SSL by default and it is up to the end-user to set up a <strong>reverse proxy</strong> using software such as <a href="https://caddyserver.com/">Caddy</a>, <a href="https://www.nginx.com/">nginx</a> or <a href="https://httpd.apache.org/">Apache</a> to provide a secure connection.</p>
 </div>
 <div class="sect3">
 <h4 id="_no_existing_reverse_proxy">No existing reverse proxy</h4>
@@ -1407,7 +1407,7 @@ server {
 <div class="sect2">
 <h3 id="_http_api">HTTP API</h3>
 <div class="paragraph">
-<p>Open Microanatomy Server includes a <strong>REST API</strong>&#8201;&#8212;&#8201;documentation is available <a href="https://demo.edu.qupath.yli-hallila.fi/swagger">here</a>.</p>
+<p>OpenMicroanatomy Server includes a <strong>REST API</strong>&#8201;&#8212;&#8201;documentation is available <a href="https://demo.edu.qupath.yli-hallila.fi/swagger">here</a>.</p>
 </div>
 </div>
 </div>
@@ -1415,7 +1415,7 @@ server {
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-01-10 18:37:10 +0200
+Last updated 2023-01-28 11:45:44 +0200
 </div>
 </div>
 </body>
