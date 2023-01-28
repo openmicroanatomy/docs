@@ -1,24 +1,24 @@
-=== What is Open Microanatomy
+=== What is OpenMicroanatomy
 
-Open Microanatomy is a project built on top of QuPath which contains three components: *Open Microanatomy Server*, *Open Microanatomy Cloud* and *QuPath Edu Extension*.
+OpenMicroanatomy is a project built on top of QuPath which contains three components: *OpenMicroanatomy Server*, *OpenMicroanatomy Cloud* and *QuPath Edu Extension*.
 
-https://github.com/openmicroanatomy/qupath-extension[*QuPath Edu Extension*] is an extension for https://qupath.github.io/[QuPath], which allows QuPath projects (called _Lessons_ in QuPath Edu) to be synced between multiple users via an https://github.com/openmicroanatomy/server[*Open Microanatomy Server*]. The *Open Microanatomy Server* handles all the heavy lifting required to authenticate users, upload new slides, manage data and so on. _QuPath Edu_ is also compatible with other data sources, such as https://github.com/qupath/qupath-extension-omero[Omero].
+https://github.com/openmicroanatomy/qupath-extension[*QuPath Edu Extension*] is an extension for https://qupath.github.io/[QuPath], which allows QuPath projects (called _Lessons_ in QuPath Edu) to be synced between multiple users via an https://github.com/openmicroanatomy/server[*OpenMicroanatomy Server*]. The *OpenMicroanatomy Server* handles all the heavy lifting required to authenticate users, upload new slides, manage data and so on. _QuPath Edu_ is also compatible with other data sources, such as https://github.com/qupath/qupath-extension-omero[Omero].
 
-Open Microanatomy also includes https://github.com/openmicroanatomy/web[*Open Microanatomy Cloud*], which is a web application that communicates with a *Open Microanatomy Server* and can be used for *viewing* projects.
+OpenMicroanatomy also includes https://github.com/openmicroanatomy/web[*OpenMicroanatomy Cloud*], which is a web application that communicates with a *OpenMicroanatomy Server* and can be used for *viewing* projects.
 
-.Visual representation of different Open Microanatomy components and how they communicate with each other. Blue components are downloaded by the end-user and the green components are setup by the system administrator
+.Visual representation of different OpenMicroanatomy components and how they communicate with each other. Green components are downloaded by the end-user and the blue components are set up by the system administrator. Red are optional third-party features.
 [#img-components]
 image::Components.png[Components]
 
 === Hierarchy
 
-A *Open Microanatomy Server* is _“compartmentalized”_ as shown in *Figure 2.* Each server can host one or multiple _Organizations_. Each organization has its own _Workspaces_, which hold _Classes_, which contain the _Lessons_. See *Table 1* for how to think about these.
+A *OpenMicroanatomy Server* is _“compartmentalized”_ as shown in *Figure 2.* Each server can host one or multiple _Organizations_. Each organization has its own _Workspaces_, which hold _Classes_, which contain the _Lessons_. See *Table 1* for how to think about these.
 
-.A demonstration of the Open Microanatomy hierarchy, with a server with three different organizations.
+.A demonstration of the OpenMicroanatomy hierarchy, with a server with three different organizations.
 [#img-hierarchy]
 image::Hierarchy.png[Hierarchy]
 
-.Translations for different Open Microanatomy components
+.Translations for different OpenMicroanatomy components
 [cols="1,3"]
 |===
 |Name |Translation 

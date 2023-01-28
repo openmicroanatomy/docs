@@ -82,7 +82,7 @@ To *generate a new configuration* simply delete the old one and restart the serv
 
 === SSL
 
-Open Microanatomy does *not* include SSL by default and it is up to the end-user to set up a *reverse proxy* using software such as https://caddyserver.com/[Caddy], https://www.nginx.com/[nginx] or https://httpd.apache.org/[Apache] to provide a secure connection.
+OpenMicroanatomy does *not* include SSL by default and it is up to the end-user to set up a *reverse proxy* using software such as https://caddyserver.com/[Caddy], https://www.nginx.com/[nginx] or https://httpd.apache.org/[Apache] to provide a secure connection.
 
 ==== No existing reverse proxy
 
@@ -161,4 +161,4 @@ To check for any incorrect paths run the following command in the server root di
 
 === HTTP API
 
-Open Microanatomy Server includes a *REST API* -- documentation is available https://demo.edu.qupath.yli-hallila.fi/swagger[here].
+OpenMicroanatomy Server includes a *REST API* -- documentation is available https://demo.edu.qupath.yli-hallila.fi/swagger[here].
