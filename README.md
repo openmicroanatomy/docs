@@ -1,3 +1,3 @@
-# QuPath Edu Docs
+# QuPath Edu / OpenMicroanatomy Documentation
 
-[Link to Documentation](https://yli-hallila.github.io/qupath-edu-docs/)
+[Link to Documentation](https://openmicroanatomy.github.io/docs/)
