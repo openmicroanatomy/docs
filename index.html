@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.18">
-<meta name="author" content="v1.0 draft, 28.1.2023">
+<meta name="author" content="v1.0 draft, 31.1.2023">
 <title>OpenMicroanatomy Handbook</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -441,7 +441,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="header">
 <h1>OpenMicroanatomy Handbook</h1>
 <div class="details">
-<span id="author" class="author">v1.0 draft, 28.1.2023</span><br>
+<span id="author" class="author">v1.0 draft, 31.1.2023</span><br>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -491,10 +491,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_openmicroanatomy_cloud">OpenMicroanatomy Cloud</a></li>
 <li><a href="#_openmicroanatomy_server">OpenMicroanatomy Server</a>
 <ul class="sectlevel2">
-<li><a href="#_installation_running">Installation &amp; Running</a>
-<ul class="sectlevel3">
-<li><a href="#_installation_docker">Installation (Docker)</a></li>
-<li><a href="#_installation_manually">Installation (Manually)</a></li>
+<li><a href="#_installation_docker">Installation (Docker)</a>
+<ul class="sectlevel4">
+<li><a href="#_prerequisites_2">Prerequisites</a></li>
+<li><a href="#_installation">Installation</a></li>
+<li><a href="#_updating">Updating</a></li>
 </ul>
 </li>
 <li><a href="#_configuration">Configuration</a></li>
@@ -502,6 +503,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel3">
 <li><a href="#_no_existing_reverse_proxy">No existing reverse proxy</a></li>
 <li><a href="#_existing_reverse_proxy">Existing reverse proxy</a></li>
+</ul>
+</li>
+<li><a href="#_installation_manually">Installation (Manually)</a>
+<ul class="sectlevel4">
+<li><a href="#_prerequisites_3">Prerequisites</a></li>
+<li><a href="#_installation_2">Installation</a></li>
+<li><a href="#_running_the_server">Running the server</a></li>
+<li><a href="#_updating_2">Updating</a></li>
+<li><a href="#_systemd_service">Systemd service</a></li>
 </ul>
 </li>
 <li><a href="#_troubleshooting">Troubleshooting</a>
@@ -519,19 +529,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>This documentation is currently work in progress</strong></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-QuPath Edu Server and Cloud were recently renamed to OpenMicroanatomy Server and OpenMicroanatomy Cloud. QuPath Edu Extension continues with the previous name.
-</td>
-</tr>
-</table>
+<p><em>This documentation is partly work in progress</em></p>
 </div>
 </div>
 </div>
@@ -1084,31 +1082,39 @@ The Docker container is still in beta but is stable for production use.
 </table>
 </div>
 <div class="sect2">
-<h3 id="_installation_running">Installation &amp; Running</h3>
-<div class="sect3">
-<h4 id="_installation_docker">Installation (Docker)</h4>
+<h3 id="_installation_docker">Installation (Docker)</h3>
 <div class="sect4">
 <h5 id="_prerequisites_2">Prerequisites</h5>
 <div class="ulist">
 <ul>
 <li>
-<p>Server with Docker support</p>
+<p>Server with Docker installed (<a href="https://docs.docker.com/engine/install/">see instructions here</a>)</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect4">
 <h5 id="_installation">Installation</h5>
+<div class="paragraph">
+<p><em>The following instructions installs OpenMicroanatomy to <code>/var/openmicroanatomy</code>&#8201;&#8212;&#8201;feel free to customize this if you know what you&#8217;re doing. The following instructions also assume you&#8217;re logged in as the <strong>root</strong> user or optionally run using <strong>sudo</strong>; Docker always needs to be run as root</em></p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>To get started, download the OpenMicroanatomy Docker configuration: <code>wget <a href="https://raw.githubusercontent.com/openmicroanatomy/hosting/main/docker-compose.yml" class="bare">https://raw.githubusercontent.com/openmicroanatomy/hosting/main/docker-compose.yml</a></code></p>
+<p><code>cd /var/ &amp;&amp; mkdir openmicroanatomy &amp;&amp; cd openmicroanatomy</code></p>
 </li>
 <li>
-<p><code>cd hosting</code></p>
+<p>Download the OpenMicroanatomy Docker configuration: <code>wget <a href="https://raw.githubusercontent.com/openmicroanatomy/hosting/main/docker-compose.yml" class="bare">https://raw.githubusercontent.com/openmicroanatomy/hosting/main/docker-compose.yml</a></code></p>
 </li>
 <li>
 <p>Start the server for the first time using <code>docker-compose run server</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>If you get a permission error try running <code>chmod 777 server-data</code> and retry.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>Follow the instructions to create the initial organization and administrator account.</p>
@@ -1159,86 +1165,6 @@ The Docker container is still in beta but is stable for production use.
 <p><code>docker-compose up -d</code></p>
 </li>
 </ol>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_installation_manually">Installation (Manually)</h4>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Warning</div>
-</td>
-<td class="content">
-Manual OpenMicroanatomy installations are no longer supported. Assistance for any issues with manual installations <strong>cannot be guaranteed</strong>.
-</td>
-</tr>
-</table>
-</div>
-<div class="sect4">
-<h5 id="_prerequisites_3">Prerequisites</h5>
-<div class="ulist">
-<ul>
-<li>
-<p>Server with Java 14 support</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_installation_2">Installation</h5>
-<div class="paragraph">
-<p><em>These instructions assume you&#8217;re familiar with Linux already and skips multiple crucial steps such as creating a new user.</em></p>
-</div>
-<div class="paragraph">
-<p>It&#8217;s advised to create a separate user, such as <code>openmicroanatomy</code> and to use software such as <code>screen</code> to create separate sessions for both instances.</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Download the latest <code>open-microanatomy-server.jar</code> from <a href="https://github.com/openmicroanatomy/server/releases">GitHub</a>.</p>
-</li>
-<li>
-<p>Save it to e.g. <code>/home/openmicroanatomy/server/open-microanatomy-server.jar</code></p>
-</li>
-<li>
-<p>Extract OpenSlide Binaries</p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>these are currently only available from the <a href="https://github.com/qupath/qupath/tree/main/maven/repo/org/openslide/openslide/3.4.1_2">QuPath repository</a>&#8201;&#8212;&#8201;download the <code>.jar</code> file specific to your operating system and <strong>extract</strong> it to where you saved <code>qupath-edu-server.jar</code>.</em></p>
-</li>
-</ul>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_running_the_server">Running the server</h5>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Start the server with <code>java -jar &lt;jar&gt; [-port &lt;port&gt;]</code></p>
-</li>
-<li>
-<p>During your initial start-up, you will create your first administrator account.</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_updating_2">Updating</h5>
-<div class="paragraph">
-<p>Download the latest <code>open-microanatomy-server.jar</code> from GitHub and restart any running <code>screen</code>.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_systemd_service">Systemd service</h5>
-<div class="paragraph">
-<p>To start OpenMicroanatomy automatically or restart it in case the process gets killed, you can create a <strong>Systemd</strong> service for it.</p>
-</div>
 </div>
 </div>
 </div>
@@ -1354,6 +1280,85 @@ server {
 </div>
 </div>
 <div class="sect2">
+<h3 id="_installation_manually">Installation (Manually)</h3>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+Manual OpenMicroanatomy installations are no longer supported. Assistance for any issues with manual installations <strong>cannot be guaranteed</strong>.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_prerequisites_3">Prerequisites</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Server with Java 14 support</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_installation_2">Installation</h5>
+<div class="paragraph">
+<p><em>These instructions assume you&#8217;re familiar with Linux already and skips multiple crucial steps such as creating a new user.</em></p>
+</div>
+<div class="paragraph">
+<p>It&#8217;s advised to create a separate user, such as <code>openmicroanatomy</code> and to use software such as <code>screen</code> to create separate sessions for both instances. Both the tiler and server must be running on the same server.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Download the latest <code>open-microanatomy-server.jar</code> from <a href="https://github.com/openmicroanatomy/server/releases">GitHub</a>.</p>
+</li>
+<li>
+<p>Save it to e.g. <code>/home/openmicroanatomy/server/open-microanatomy-server.jar</code></p>
+</li>
+<li>
+<p>Extract OpenSlide Binaries</p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>these are currently only available from the <a href="https://github.com/qupath/qupath/tree/main/maven/repo/org/openslide/openslide/3.4.1_2">QuPath repository</a>&#8201;&#8212;&#8201;download the <code>.jar</code> file specific to your operating system and <strong>extract</strong> it to where you saved <code>qupath-edu-server.jar</code>.</em></p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_running_the_server">Running the server</h5>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Start the server with <code>java -jar &lt;jar&gt; [-port &lt;port&gt;]</code></p>
+</li>
+<li>
+<p>During your initial start-up, you will create your first administrator account.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_updating_2">Updating</h5>
+<div class="paragraph">
+<p>Download the latest <code>open-microanatomy-server.jar</code> from GitHub and restart any running <code>screen</code>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_systemd_service">Systemd service</h5>
+<div class="paragraph">
+<p>To start OpenMicroanatomy automatically or restart it in case the process gets killed, you can create a <strong>Systemd</strong> service for it.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_troubleshooting">Troubleshooting</h3>
 <div class="sect3">
 <h4 id="_fixing_incorrect_slide_paths">Fixing Incorrect Slide Paths</h4>
@@ -1396,7 +1401,7 @@ server {
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-01-28 11:45:44 +0200
+Last updated 2023-03-14 18:56:04 +0200
 </div>
 </div>
 </body>

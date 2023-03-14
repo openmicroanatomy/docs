@@ -114,7 +114,7 @@ WARNING: Manual OpenMicroanatomy installations are no longer supported. Assistan
 
 _These instructions assume you're familiar with Linux already and skips multiple crucial steps such as creating a new user._
 
-It's advised to create a separate user, such as `openmicroanatomy` and to use software such as `screen` to create separate sessions for both instances. Both the tiler and server must be running on the same server.
+It's advised to create a separate user, such as `openmicroanatomy` and to use software such as `screen` to create separate sessions for both instances.
 
 1. Download the latest `open-microanatomy-server.jar` from https://github.com/openmicroanatomy/server/releases[GitHub].
 2. Save it to e.g. `/home/openmicroanatomy/server/open-microanatomy-server.jar`
@@ -125,11 +125,6 @@ It's advised to create a separate user, such as `openmicroanatomy` and to use so
 
 1. Start the server with `java -jar <jar> [-port <port>]`
 2. During your initial start-up, you will create your first administrator account.
-
-===== Running the tiler
-
-1. Start the tiler with `java -jar <jar> --tiler`
-2. Tiler validates that everything is working as expected and will wait for new slides.
 
 ===== Updating
 
