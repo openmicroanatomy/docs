@@ -1,22 +1,23 @@
 NOTE: The Docker container is still in beta but is stable for production use.
 
-=== Installation & Running
-
-==== Installation (Docker)
+=== Installation (Docker)
 
 ===== Prerequisites
 
-- Server with Docker support
+- Server with Docker installed (https://docs.docker.com/engine/install/[see instructions here])
 
 ===== Installation
 
-1. To get started, download the OpenMicroanatomy Docker configuration: `wget https://raw.githubusercontent.com/openmicroanatomy/hosting/main/docker-compose.yml`
-3. `cd hosting`
-2. Start the server for the first time using `docker-compose run server`
-3. Follow the instructions to create the initial organization and administrator account.
+_The following instructions installs OpenMicroanatomy to `/var/openmicroanatomy` -- feel free to customize this if you know what you're doing. The following instructions also assume you're logged in as the *root* user or optionally run using *sudo*; Docker always needs to be run as root_
+
+1. `cd /var/ && mkdir openmicroanatomy && cd openmicroanatomy`
+2. Download the OpenMicroanatomy Docker configuration: `wget https://raw.githubusercontent.com/openmicroanatomy/hosting/main/docker-compose.yml`
+3. Start the server for the first time using `docker-compose run server`
+    - If you get a permission error try running `chmod 777 server-data` and retry.
+4. Follow the instructions to create the initial organization and administrator account.
     - Organization name and administrator account can be edited later
-4. After creating the initial organization and administrator account stop the server by inputting `stop` into the terminal or by pressing `CTRL + A` + `CTRL + C` to exit.
-5. Edit the `application.conf` using e.g. `nano` or `vi`
+5. After creating the initial organization and administrator account stop the server by inputting `stop` into the terminal or by pressing `CTRL + A` + `CTRL + C` to exit.
+6. Edit the `application.conf` using e.g. `nano` or `vi`
     - Most important step is to configure `server.host` to match your reverse proxy address; otherwise slides _will not work_ and fixing them later is can be cumbersome -- see <<Fixing Incorrect Slide Paths>>.
     - See <<Configuration>> chapter below for more details.
 6. Start the server using `docker-compose up -d` which will start server.
@@ -28,38 +29,6 @@ OpenMicroanatomy uses semantic versioning `MAJOR.MINOR.PATCH`, meaning no breaki
 1. `docker-compose down`
 2. `docker pull openmicroanatomy`
 3. `docker-compose up -d`
-
-==== Installation (Manually)
-
-WARNING: Manual OpenMicroanatomy installations are no longer supported. Assistance for any issues with manual installations *cannot be guaranteed*.
-
-===== Prerequisites
-
-- Server with Java 14 support
-
-===== Installation
-
-_These instructions assume you're familiar with Linux already and skips multiple crucial steps such as creating a new user._
-
-It's advised to create a separate user, such as `openmicroanatomy` and to use software such as `screen` to create separate sessions for both instances.
-
-1. Download the latest `open-microanatomy-server.jar` from https://github.com/openmicroanatomy/server/releases[GitHub].
-2. Save it to e.g. `/home/openmicroanatomy/server/open-microanatomy-server.jar`
-3. Extract OpenSlide Binaries
-- _these are currently only available from the https://github.com/qupath/qupath/tree/main/maven/repo/org/openslide/openslide/3.4.1_2[QuPath repository] -- download the `.jar` file specific to your operating system and *extract* it to where you saved `qupath-edu-server.jar`._
-
-===== Running the server
-
-1. Start the server with `java -jar <jar> [-port <port>]`
-2. During your initial start-up, you will create your first administrator account.
-
-===== Updating
-
-Download the latest `open-microanatomy-server.jar` from GitHub and restart any running `screen`.
-
-===== Systemd service
-
-To start OpenMicroanatomy automatically or restart it in case the process gets killed, you can create a *Systemd* service for it.
 
 === Configuration
 
@@ -132,6 +101,43 @@ server {
     return 404;
 }
 ```
+
+=== Installation (Manually)
+
+WARNING: Manual OpenMicroanatomy installations are no longer supported. Assistance for any issues with manual installations *cannot be guaranteed*.
+
+===== Prerequisites
+
+- Server with Java 14 support
+
+===== Installation
+
+_These instructions assume you're familiar with Linux already and skips multiple crucial steps such as creating a new user._
+
+It's advised to create a separate user, such as `openmicroanatomy` and to use software such as `screen` to create separate sessions for both instances. Both the tiler and server must be running on the same server.
+
+1. Download the latest `open-microanatomy-server.jar` from https://github.com/openmicroanatomy/server/releases[GitHub].
+2. Save it to e.g. `/home/openmicroanatomy/server/open-microanatomy-server.jar`
+3. Extract OpenSlide Binaries
+- _these are currently only available from the https://github.com/qupath/qupath/tree/main/maven/repo/org/openslide/openslide/3.4.1_2[QuPath repository] -- download the `.jar` file specific to your operating system and *extract* it to where you saved `qupath-edu-server.jar`._
+
+===== Running the server
+
+1. Start the server with `java -jar <jar> [-port <port>]`
+2. During your initial start-up, you will create your first administrator account.
+
+===== Running the tiler
+
+1. Start the tiler with `java -jar <jar> --tiler`
+2. Tiler validates that everything is working as expected and will wait for new slides.
+
+===== Updating
+
+Download the latest `open-microanatomy-server.jar` from GitHub and restart any running `screen`.
+
+===== Systemd service
+
+To start OpenMicroanatomy automatically or restart it in case the process gets killed, you can create a *Systemd* service for it.
 
 === Troubleshooting
 
