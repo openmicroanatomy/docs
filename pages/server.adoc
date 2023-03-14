@@ -67,7 +67,7 @@ Configuration is available at `application.conf` which will be generated during 
 
 The *only required configuration step* is setting the `server.host` parameter -- this should point to your reverse proxy address (see <<SSL>> chapter). *Your server _will not_ function properly if you do not set the host parameter.*
 
-For storing the tiles there are two options. *Flatfile (default)* storage uses the servers disk to store any tiles. For *Cloud storage* currently *https://docs.csc.fi/data/Allas/[CSC Allas]* is only supported, with initial support for *Amazon S3* existing. If you're interested in support for https://aws.amazon.com/s3/[Amazon S3] or any other cloud provider, please create a https://github.com/openmicroanatomy/server/issues[GitHub issue] regarding this.
+For storing the tiles there are two options. *Local (default)* storage uses the servers disk to store any tiles. For *Cloud storage* currently *https://docs.csc.fi/data/Allas/[CSC Allas]* is only supported, with initial support for *Amazon S3* existing. If you're interested in support for https://aws.amazon.com/s3/[Amazon S3] or any other cloud provider, please create a https://github.com/openmicroanatomy/server/issues[GitHub issue] regarding this.
 
 To *generate a new configuration* simply delete the old one and restart the server. To *reload the configuration* you must restart the server.
 
