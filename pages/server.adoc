@@ -2,8 +2,6 @@ NOTE: The Docker container is still in beta but is stable for production use.
 
 === Installation & Running
 
-OpenMicroanatomy Server consists of two components: a *HTTP server* which handles authentication, data (slides, projects, backups, etc...) and so on, and of a *tiler* which runs in the background and converts slides into smaller chunks called *tiles*. Without the *tiler* running you cannot upload new slides; this separation of tasks is due to legacy reasons and both components are hopefully bundled together in version 2.0.
-
 ==== Installation (Docker)
 
 ===== Prerequisites
@@ -21,9 +19,7 @@ OpenMicroanatomy Server consists of two components: a *HTTP server* which handle
 5. Edit the `application.conf` using e.g. `nano` or `vi`
     - Most important step is to configure `server.host` to match your reverse proxy address; otherwise slides _will not work_ and fixing them later is can be cumbersome -- see <<Fixing Incorrect Slide Paths>>.
     - See <<Configuration>> chapter below for more details.
-6. Start the server using `docker-compose up -d` which will start both the *Server* and *Tiler*.
-
-_If you wish to run OpenMicroanatomy without the *Tiler*, just ccomment the lines for *Tiler* inside `docker-compose.yml`._
+6. Start the server using `docker-compose up -d` which will start server.
 
 ===== Updating
 
@@ -45,7 +41,7 @@ WARNING: Manual OpenMicroanatomy installations are no longer supported. Assistan
 
 _These instructions assume you're familiar with Linux already and skips multiple crucial steps such as creating a new user._
 
-It's advised to create a separate user, such as `openmicroanatomy` and to use software such as `screen` to create separate sessions for both instances. Both the tiler and server must be running on the same server.
+It's advised to create a separate user, such as `openmicroanatomy` and to use software such as `screen` to create separate sessions for both instances.
 
 1. Download the latest `open-microanatomy-server.jar` from https://github.com/openmicroanatomy/server/releases[GitHub].
 2. Save it to e.g. `/home/openmicroanatomy/server/open-microanatomy-server.jar`
@@ -56,11 +52,6 @@ It's advised to create a separate user, such as `openmicroanatomy` and to use so
 
 1. Start the server with `java -jar <jar> [-port <port>]`
 2. During your initial start-up, you will create your first administrator account.
-
-===== Running the tiler
-
-1. Start the tiler with `java -jar <jar> --tiler`
-2. Tiler validates that everything is working as expected and will wait for new slides.
 
 ===== Updating
 

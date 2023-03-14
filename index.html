@@ -1085,9 +1085,6 @@ The Docker container is still in beta but is stable for production use.
 </div>
 <div class="sect2">
 <h3 id="_installation_running">Installation &amp; Running</h3>
-<div class="paragraph">
-<p>OpenMicroanatomy Server consists of two components: a <strong>HTTP server</strong> which handles authentication, data (slides, projects, backups, etc&#8230;&#8203;) and so on, and of a <strong>tiler</strong> which runs in the background and converts slides into smaller chunks called <strong>tiles</strong>. Without the <strong>tiler</strong> running you cannot upload new slides; this separation of tasks is due to legacy reasons and both components are hopefully bundled together in version 2.0.</p>
-</div>
 <div class="sect3">
 <h4 id="_installation_docker">Installation (Docker)</h4>
 <div class="sect4">
@@ -1140,12 +1137,9 @@ The Docker container is still in beta but is stable for production use.
 </div>
 </li>
 <li>
-<p>Start the server using <code>docker-compose up -d</code> which will start both the <strong>Server</strong> and <strong>Tiler</strong>.</p>
+<p>Start the server using <code>docker-compose up -d</code> which will start server.</p>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p><em>If you wish to run OpenMicroanatomy without the <strong>Tiler</strong>, just ccomment the lines for <strong>Tiler</strong> inside <code>docker-compose.yml</code>.</em></p>
 </div>
 </div>
 <div class="sect4">
@@ -1198,7 +1192,7 @@ Manual OpenMicroanatomy installations are no longer supported. Assistance for an
 <p><em>These instructions assume you&#8217;re familiar with Linux already and skips multiple crucial steps such as creating a new user.</em></p>
 </div>
 <div class="paragraph">
-<p>It&#8217;s advised to create a separate user, such as <code>openmicroanatomy</code> and to use software such as <code>screen</code> to create separate sessions for both instances. Both the tiler and server must be running on the same server.</p>
+<p>It&#8217;s advised to create a separate user, such as <code>openmicroanatomy</code> and to use software such as <code>screen</code> to create separate sessions for both instances.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1230,19 +1224,6 @@ Manual OpenMicroanatomy installations are no longer supported. Assistance for an
 </li>
 <li>
 <p>During your initial start-up, you will create your first administrator account.</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_running_the_tiler">Running the tiler</h5>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Start the tiler with <code>java -jar &lt;jar&gt; --tiler</code></p>
-</li>
-<li>
-<p>Tiler validates that everything is working as expected and will wait for new slides.</p>
 </li>
 </ol>
 </div>
