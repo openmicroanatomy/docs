@@ -136,7 +136,7 @@ To start OpenMicroanatomy automatically or restart it in case the process gets k
 
 ==== Fixing Incorrect Slide Paths
 
-Uploading slides with an incorrect `server.path` inside `application.conf` will result in QuPath and OpenMicroanatomy Cloud not knowing where the slides are actually stored and making them inaccessible. The `server.path` is encoded within each slides `.properties` file when uploaded, thus requiring them to be manually updated if the `server.path` is changed.
+Uploading slides with an incorrect `server.path` inside `application.conf` will result in QuPath and OpenMicroanatomy Web not knowing where the slides are actually stored and making them inaccessible. The `server.path` is encoded within each slides `.properties` file when uploaded, thus requiring them to be manually updated if the `server.path` is changed.
 
 To check for any incorrect paths run the following command in the server root directory.
 

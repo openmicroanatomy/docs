@@ -485,7 +485,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 </ul>
 </li>
-<li><a href="#_openmicroanatomy_cloud">OpenMicroanatomy Cloud</a></li>
+<li><a href="#_openmicroanatomy_web">OpenMicroanatomy Web</a></li>
 <li><a href="#_openmicroanatomy_server">OpenMicroanatomy Server</a>
 <ul class="sectlevel2">
 <li><a href="#_installation_docker">Installation (Docker)</a>
@@ -536,13 +536,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_what_is_openmicroanatomy">What is OpenMicroanatomy</h3>
 <div class="paragraph">
-<p>OpenMicroanatomy is a project built on top of QuPath which contains three components: <strong>OpenMicroanatomy Server</strong>, <strong>OpenMicroanatomy Cloud</strong> and <strong>QuPath Edu Extension</strong>.</p>
+<p>OpenMicroanatomy is a project built on top of QuPath which contains three components: <strong>OpenMicroanatomy Server</strong>, <strong>OpenMicroanatomy Web</strong> and <strong>QuPath Edu Extension</strong>.</p>
 </div>
 <div class="paragraph">
 <p><a href="https://github.com/openmicroanatomy/qupath-extension"><strong>QuPath Edu Extension</strong></a> is an extension for <a href="https://qupath.github.io/">QuPath</a>, which allows QuPath projects (called <em>Lessons</em> in QuPath Edu) to be synced between multiple users via an <a href="https://github.com/openmicroanatomy/server"><strong>OpenMicroanatomy Server</strong></a>. The <strong>OpenMicroanatomy Server</strong> handles all the heavy lifting required to authenticate users, upload new slides, manage data and so on. <em>QuPath Edu</em> is also compatible with other data sources, such as <a href="https://github.com/qupath/qupath-extension-omero">Omero</a>.</p>
 </div>
 <div class="paragraph">
-<p>OpenMicroanatomy also includes <a href="https://github.com/openmicroanatomy/web"><strong>OpenMicroanatomy Cloud</strong></a>, which is a web application that communicates with a <strong>OpenMicroanatomy Server</strong> and can be used for <strong>viewing</strong> projects.</p>
+<p>OpenMicroanatomy also includes <a href="https://github.com/openmicroanatomy/web"><strong>OpenMicroanatomy Web</strong></a>, which is a web application that communicates with a <strong>OpenMicroanatomy Server</strong> and can be used for <strong>viewing</strong> projects.</p>
 </div>
 <div id="img-components" class="imageblock">
 <div class="content">
@@ -659,7 +659,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>OpenMicroanatomy Cloud</strong></p>
+<p><strong>OpenMicroanatomy Web</strong></p>
 </div>
 <div class="ulist">
 <ul>
@@ -1053,7 +1053,7 @@ In QuPath Edu Server version 1.0 a bug exists, which allows users with write per
 </div>
 </div>
 <div class="sect1">
-<h2 id="_openmicroanatomy_cloud">OpenMicroanatomy Cloud</h2>
+<h2 id="_openmicroanatomy_web">OpenMicroanatomy Web</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Documentation in progress</strong>.</p>
@@ -1362,7 +1362,7 @@ Manual OpenMicroanatomy installations are not recommended. Assistance for any is
 <div class="sect3">
 <h4 id="_fixing_incorrect_slide_paths">Fixing Incorrect Slide Paths</h4>
 <div class="paragraph">
-<p>Uploading slides with an incorrect <code>server.path</code> inside <code>application.conf</code> will result in QuPath and OpenMicroanatomy Cloud not knowing where the slides are actually stored and making them inaccessible. The <code>server.path</code> is encoded within each slides <code>.properties</code> file when uploaded, thus requiring them to be manually updated if the <code>server.path</code> is changed.</p>
+<p>Uploading slides with an incorrect <code>server.path</code> inside <code>application.conf</code> will result in QuPath and OpenMicroanatomy Web not knowing where the slides are actually stored and making them inaccessible. The <code>server.path</code> is encoded within each slides <code>.properties</code> file when uploaded, thus requiring them to be manually updated if the <code>server.path</code> is changed.</p>
 </div>
 <div class="paragraph">
 <p>To check for any incorrect paths run the following command in the server root directory.</p>
@@ -1400,7 +1400,7 @@ Manual OpenMicroanatomy installations are not recommended. Assistance for any is
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-09-22 08:37:16 +0300
+Last updated 2023-09-22 08:41:30 +0300
 </div>
 </div>
 </body>
