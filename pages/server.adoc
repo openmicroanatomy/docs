@@ -29,7 +29,7 @@ OpenMicroanatomy uses semantic versioning `MAJOR.MINOR.PATCH`, meaning no breaki
 To update OpenMicroanatomy Server, run the following commands.
 
 1. `docker-compose down`
-2. `docker pull openmicroanatomy`
+2. `docker pull ylihallila/openmicroanatomy-server`
 3. `docker-compose up -d`
 
 === Configuration
