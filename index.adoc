@@ -1,5 +1,5 @@
 = OpenMicroanatomy Handbook
-v1.0 draft, 31.1.2023
+v1.0 draft, 22.9.2023
 :toc: left
 :toclevels: 3
 :imagesdir: images

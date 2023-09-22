@@ -8,23 +8,25 @@ NOTE: The Docker container is still in beta but is stable for production use.
 
 ===== Installation
 
-_The following instructions installs OpenMicroanatomy to `/var/openmicroanatomy` -- feel free to customize this if you know what you're doing. The following instructions also assume you're logged in as the *root* user or optionally run using *sudo*; Docker always needs to be run as root_
+NOTE: The following instructions installs OpenMicroanatomy to `/opt/openmicroanatomy` using `sudo` -- feel free to customize this if you know what you're doing.
 
-1. `cd /var/ && mkdir openmicroanatomy && cd openmicroanatomy`
-2. Download the OpenMicroanatomy Docker configuration: `wget https://raw.githubusercontent.com/openmicroanatomy/hosting/main/docker-compose.yml`
-3. Start the server for the first time using `docker-compose run server`
-    - If you get a permission error try running `chmod 777 server-data` and retry.
-4. Follow the instructions to create the initial organization and administrator account.
-    - Organization name and administrator account can be edited later
+1. `cd /opt/ && sudo mkdir openmicroanatomy && cd openmicroanatomy`
+2. Download the OpenMicroanatomy Docker configuration: `sudo wget https://raw.githubusercontent.com/openmicroanatomy/hosting/main/docker-compose.yml`
+3. Start the server for the first time using `sudo docker-compose run server`
+    - If you get a _**AccessDeniedException**_ error try running `sudo chmod 777 server-data` and retry the previous command.
+    - This error is due to *OpenMicroanatomy* running inside the Docker container as the user `oma` which does not have the permissions to modify that folder. If you require stricter security, create a user called `oma` on the host machine and assign permissions to that user to `server-data` folder.
+4. Follow the instructions to create the initial organization and administrator account _(these can be edited later; see *Chapters:* <<Users & Roles>> and <<Organizations>>)_
 5. After creating the initial organization and administrator account stop the server by inputting `stop` into the terminal or by pressing `CTRL + A` + `CTRL + C` to exit.
-6. Edit the `application.conf` using e.g. `nano` or `vi`
-    - Most important step is to configure `server.host` to match your reverse proxy address; otherwise slides _will not work_ and fixing them later is can be cumbersome -- see <<Fixing Incorrect Slide Paths>>.
-    - See <<Configuration>> chapter below for more details.
-6. Start the server using `docker-compose up -d` which will start server.
+6. Edit the `application.conf` inside `server-data` using e.g. `nano` (e.g. `nano server-data/application.conf`)
+    - The most important step is to configure `server.host` to match your hostname (see *Chapter:* <<SSL>> for further instructions); otherwise slides _will not work_ and fixing them later is can be cumbersome -- see <<Fixing Incorrect Slide Paths>>.
+    - See <<Configuration>> chapter below for more details about different configuration options.
+6. Start the server using `sudo docker-compose up -d`; to stop the server run `sudo docker-compose down --remove-orphans`.
 
 ===== Updating
 
 OpenMicroanatomy uses semantic versioning `MAJOR.MINOR.PATCH`, meaning no breaking changes happen unless the major version changes (e.g. from 1.X.X to 2.X.X). If you're using `:latest` (default) as the Docker container version you may accidentally update to a newer major version. It is recommended that you pin your version to e.g. `:v1` to allow minor and patch upgrades or `v1.1` to allow only patches by editing  `docker-compose.yml`.
+
+To update OpenMicroanatomy Server, run the following commands.
 
 1. `docker-compose down`
 2. `docker pull openmicroanatomy`
@@ -34,7 +36,7 @@ OpenMicroanatomy uses semantic versioning `MAJOR.MINOR.PATCH`, meaning no breaki
 
 Configuration is available at `application.conf` which will be generated during the initial start-up, it contains comments for instructions. The default configuration has sensible defaults, but you're free to tweak anything you wish.
 
-The *only required configuration step* is setting the `server.host` parameter -- this should point to your reverse proxy address (see <<SSL>> chapter). *Your server _will not_ function properly if you do not set the host parameter.*
+The *only required configuration step* is setting the `server.host` parameter -- this should point to your hostname (see <<SSL>> chapter). *Your server _will not_ function properly if you do not set the host parameter.*
 
 For storing the tiles there are two options. *Local (default)* storage uses the servers disk to store any tiles. For *Cloud storage* currently *https://docs.csc.fi/data/Allas/[CSC Allas]* is only supported, with initial support for *Amazon S3* existing. If you're interested in support for https://aws.amazon.com/s3/[Amazon S3] or any other cloud provider, please create a https://github.com/openmicroanatomy/server/issues[GitHub issue] regarding this.
 
@@ -42,29 +44,25 @@ To *generate a new configuration* simply delete the old one and restart the serv
 
 === SSL
 
-OpenMicroanatomy does *not* include SSL by default and it is up to the end-user to set up a *reverse proxy* using software such as https://caddyserver.com/[Caddy], https://www.nginx.com/[nginx] or https://httpd.apache.org/[Apache] to provide a secure connection.
+OpenMicroanatomy includes SSL support using https://caddyserver.com/[Caddy] with Docker. You're free to manually setup a *reverse proxy* using software such as https://caddyserver.com/[Caddy], https://www.nginx.com/[nginx] or https://httpd.apache.org/[Apache] to provide a secure connection.
 
-==== No existing reverse proxy
+==== Setting up SSL using Caddy server with Docker
 
-If your DNS includes an automatic SSL proxy option, feel free to try that. Alternatively you can set up your own Caddy server as a reverse proxy or use the provided Caddy Docker container as described below.
-
-===== Setting up a Caddy server using Docker
-
-1. Shut down any Docker instances: `docker-compose down`
-2. Download the _Caddy Docker configuration_ using `wget https://raw.githubusercontent.com/openmicroanatomy/hosting/main/docker-compose.caddy.yml`
-3. Edit the _Caddy Docker configuration_: `nano docker-compose.caddy.yml`
+1. Shutdown any Docker instances: `sudo docker-compose down` (running inside `/opt/openmicroanatomy`)
+2. Download the _Caddy Docker configuration_ using `sudo wget https://raw.githubusercontent.com/openmicroanatomy/hosting/main/docker-compose.caddy.yml`
+3. Edit the _Caddy Docker configuration_: `sudo nano docker-compose.caddy.yml`
 4. Change `virtual.host` to your domain name without `https://` e.g.: `virtual.host: 'example.com'`
 5. Change `virtual.tls-address` to your administrator email account e.g. `virtual.tls-address: 'john.smith@example.com'` -- this is not revealed to anyone and only used by CertBot to notify about any issues with the SSL certificate.
 6. **Save and exit **
-7. Edit the _OpenMicroanatomy Docker configuration_: `nano docker-compose.yml`
+7. Edit the _OpenMicroanatomy Docker configuration_: `sudo nano docker-compose.yml`
 8. Under `ports` change `- '7777:7777'` to `- '127.0.0.1:7777:7777` to prohibit access using insecure HTTP
 9. **Save and exit**
-10. Run `docker-compose -f docker-compose.yml -f docker-compose.caddy.yml up -D` to restart server
+10. Run `sudo docker-compose -f docker-compose.yml -f docker-compose.caddy.yml up -d` to restart server with SSL.
 11. *Done*: OpenMicroanatomy should be accessible via `https://example.com`
 
-==== Existing reverse proxy
+==== Reverse proxy
 
-Configure your existing Apache / nginx server to behave as a reverse proxy for OpenMicroanatomy.
+If your DNS includes an automatic SSL proxy option, feel free to try that. Alternatively you can setup / configure your existing Apache / nginx server to behave as a reverse proxy for OpenMicroanatomy.
 
 Below is an example nginx reverse proxy configuration using https://certbot.eff.org/[Certbot].
 
@@ -104,11 +102,11 @@ server {
 
 === Installation (Manually)
 
-WARNING: Manual OpenMicroanatomy installations are no longer supported. Assistance for any issues with manual installations *cannot be guaranteed*.
+WARNING: Manual OpenMicroanatomy installations are not recommended. Assistance for any issues with manual installations *cannot be guaranteed*.
 
 ===== Prerequisites
 
-- Server with Java 14 support
+- Server with Java 19 or later installed
 
 ===== Installation
 
